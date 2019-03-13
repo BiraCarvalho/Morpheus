@@ -3,7 +3,7 @@
 define ( "__DEFAULT_CHARSET", "UTF-8" );
 
 define ( "__ADMIN_TITLE", "Bira Carvalho - Administração" ); // Titulo da área administrativa
-define ( "__VERSAO", "4.0.1 - 11/2017"              );  // Versão do sistema
+define ( "__VERSAO", "1.0.0 - 03/2019");  // Versão do sistema
 
 define ( "__ROOT_PATH", dirname( __DIR__ )  );
 define ( "__BASE_DIR",  ""                  );
@@ -13,7 +13,6 @@ define ( "__APLICACAO_PATH",   __ROOT_PATH . "/aplicacao"         );
 define ( "__BIBLIOTECA_PATH",  __ROOT_PATH . "/biblioteca"        );
 define ( "__DADOS_PATH",       __ROOT_PATH . "/dados"             );
 define ( "__MIDIAS_PATH",      __ROOT_PATH . "/dados/midias"      );
-define ( "__PRODUTOS_PATH",    __ROOT_PATH . "/dados/produtos"    );
 
 define ( "__MODULOS_PATH",     __BIBLIOTECA_PATH . "/modulos"     );
 define ( "__COMPONENTES_PATH", __BIBLIOTECA_PATH . "/componentes" );
@@ -38,18 +37,15 @@ define ( "__ADMIN_MODULO_DEFAULT",       "Dashboard"    );
 define ( "__SITE_ROTA_DEFAULT",        "home" );
 
 define ( "__SITE_AUTENTICACAO_URI",   __BASE_DIR . "/autenticacao");
-define ( "__SITE_LOGIN_REDIRECT_URI", __BASE_DIR . "/brinquedos-e-acessorios"  );
+define ( "__SITE_LOGIN_REDIRECT_URI", __BASE_DIR . "/home"  );
 
 define ( "__DADOS_BASE_URI",        __BASE_DIR . "/dados" );
 define ( "__MIDIAS_BASE_URI",       __BASE_DIR . "/dados/midias" );
-define ( "__PRODUTOS_BASE_URI",     __BASE_DIR . "/dados/produtos" );
-define ( "__BANNERS_BASE_URI",      __BASE_DIR . "/dados/banners" );
 define ( "__ADMIN_BASE_URI",        __BASE_DIR . "/aplicacao/admin" );
 define ( "__NODE_MODULES_PATH",     __BASE_DIR . "/biblioteca/node_modules" );
 define ( "__MODULOS_ASSETS_PATH",   __BASE_DIR . "/biblioteca/modulos" );
 define ( "__ASSETS_PATH",           __BASE_DIR . "/biblioteca/assets" );
 
-define ( "__CKEDITOR_PATH",         __BASE_DIR . "/biblioteca/vendor/ckeditor" );
 define ( "__CKEDITOR_CONFIG_FILE",  __BASE_DIR . "/biblioteca/assets/js/ck.js" );
 
 define ( "__DEBUGBAR_BASE_URL",     __BASE_DIR . "/biblioteca/vendor/composer/maximebf/debugbar/src/DebugBar/Resources/" );
