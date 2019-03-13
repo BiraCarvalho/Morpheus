@@ -1,0 +1,1 @@
+<textarea id="<?=$dados["id"]?>" name="<?=$dados["name"]?>" class="form-control <?=@$dados["class"]?>" rows="<?=@$dados["rows"]?>" <?=(@$dados["attrs"]?:@$dados['attrs'])?> ><?=@$dados["value"]?></textarea>

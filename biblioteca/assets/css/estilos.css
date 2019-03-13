@@ -1,0 +1,568 @@
+/*Estilos estilosos do Birah ;-) */
+
+@import url("share-buttons.css");
+
+hr{
+	border-top-color:#ccc !important;
+}
+
+a h1, a h2, a h3, a h4, a h5, a h6{
+	color: #222222;
+}
+
+.alert-danger-plus{
+	background-color: #900 !important;
+	color: #fefefe;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.table-divisor{
+    border-top: 1px solid #ccc;
+}
+
+span.span-error{
+  display: inline-block;
+  padding-left: 10px;
+  font-size: 80%;
+  color:#900;
+}
+.checkbox span.span-error,
+.wrap-captcha span.span-error{
+  display: block;
+  padding-left: 0;
+}
+
+.dropdown-menu >.active >a,
+.dropdown-menu >.active >a:focus,
+.dropdown-menu >.active >a:hover{
+	background: #eeeeee !important;
+}
+.img-responsive{
+	display: inline-block;
+}
+.share-buttons{
+	margin-bottom: 20px;
+}
+.loginbar .btn-logoff{
+	margin-top: -5px;
+}
+.paginador{
+	text-align: center;
+}
+
+.content{
+	padding: 51px 0 0 0;
+}
+.content h1{
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+	padding-bottom: 5px;
+	margin-bottom: 25px;
+}
+
+.modulo-wrap{
+	position: relative !important;
+}
+.menu-wrap{
+	display:inline-block;
+	vertical-align:top;
+	width:100%;
+	margin: 0;
+}
+
+.conteudo-wrap{
+	display:inline-block;
+	width:100%;
+	vertical-align:top;
+}
+.conteudo-wrap h1,
+.conteudo-wrap h2,
+.conteudo-wrap h3{
+	margin: 5px 0;
+}
+
+.conteudo-wrap > header > h2{
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+	padding-bottom: 5px;
+	margin-bottom: 25px;
+}
+.conteudo-wrap > article > header > h2{
+	font-size: 24px;
+	margin-bottom: 25px;
+}
+.conteudo-wrap.single{
+	width:100%;
+	max-width:none;
+}
+.conteudo-wrap.single > header{
+	display: none;
+}
+
+
+/*MENU LATERAL*/
+.menu-wrap nav ul{
+	display: block;
+	list-style: none;
+	position: relative;
+	padding-left:0;
+	margin-bottom:20px;
+}
+.menu-wrap nav ul ul{
+	display: none;
+}
+.menu-wrap nav ul li {
+	border-bottom: solid 1px #ccc;
+	display: block;
+	position: relative;
+}
+.menu-wrap nav ul li.active{
+	background: #eeeeee;
+}
+.menu-wrap nav ul li:last-child{
+	border-bottom: none;
+}
+.menu-wrap nav ul li a {
+	color: #222222;
+	display: block;
+	padding: 5px 10px;
+}
+.menu-wrap nav ul li a:hover,
+.menu-wrap nav ul li a:focus{
+	background: rgba(0,0,0,.03);
+	text-decoration: none;
+}
+.menu-wrap nav ul ul li {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+.menu-wrap nav ul ul li:last-child{
+	border:none;
+}
+.menu-wrap nav ul ul li a {
+	padding-left:16px;
+}
+.menu-wrap nav ul ul li a:hover,
+.menu-wrap nav ul ul li a:focus {
+	text-decoration: none;
+}
+
+/*GALERIA (ABERTA)*/
+.conteudo-wrap .galeria{
+	text-align: center;
+	margin-bottom: 50px;
+	padding-top: 50px;
+}
+.conteudo-wrap .galeria figure{
+	position: relative;
+	margin: 5px;
+	max-width: 262px;
+	max-height: 262px;
+	display: inline-block;
+	vertical-align: top;
+	box-shadow: 3px 3px 5px #666666;
+}
+.conteudo-wrap .galeria figure .zoom{
+	display: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 40px;
+	color: rgba(0,0,0,0.55);
+}
+.conteudo-wrap .galeria figure:hover .zoom{
+	display: block;
+}
+.conteudo-wrap .video{
+	margin: 25px auto;
+	/*Eu sei, é esquisito, mas o bootstrap usa essa propriedade
+	para ajustar a altura do container do player dinamicamente.
+	Então para fixar uma altura máxima é necessário fazer o reset
+	fixando um valor para padding-bottom.
+	A regra original no bootstrap é a classe .embed-responsive-16by9
+	*/
+}
+
+.conteudo-wrap > article > footer{
+    margin-bottom: 20px;
+    overflow: hidden;
+	clear: both;
+}
+.modulo-conteudos-lista .conteudo-wrap > article > footer{
+	border-bottom: 1px dashed #cccccc;
+}
+
+/*LISTAS*/
+.conteudos-lista article{
+	overflow: hidden;
+	display: block;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #cccccc;
+}
+.conteudos-lista article figure{
+	margin: 0 auto 25px auto;
+	width: 100%;
+	max-width: 350px;
+	min-height: 300px;
+	border: 1px solid #dddddd;
+	border-width: 1px 0 0 1px;
+	box-shadow: 3px 3px 5px #666666;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center center;
+	overflow: hidden;
+}
+.conteudos-lista article header h2{
+	font-size: 20px;
+}
+.conteudos-lista article header a:hover{
+	text-decoration: none;
+}
+.conteudos-lista article footer{
+	clear: both;
+	text-align: right;
+}
+
+
+/*LISTA SLIM*/
+.conteudos-lista-slim article{
+	margin-bottom:3px;
+	padding: 15px;
+}
+.conteudos-lista-slim article h2{
+ 	font-size:2rem;
+	margin:0;
+}
+
+
+/*LISTA GRID*/
+/* .conteudos-lista-grid{
+	text-align: center;
+} */
+.conteudos-lista-grid article{
+	position: relative;
+	width: 100%;
+	max-width: 350px;
+	display: inline-block;
+	vertical-align: top;
+	margin:0 5px 15px 5px;
+	border: 1px solid #eee;
+	box-shadow: 3px 3px 5px #dddddd;
+}
+.conteudos-lista-grid article a{
+	display: block;
+}
+.conteudos-lista-grid article figure{
+	min-height: 300px;
+	display: block;
+	overflow: hidden;
+	margin-bottom: 10px;
+	background: #ffffff;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.conteudos-lista-grid article figure img{
+	display: inline-block;
+	vertical-align: bottom;
+}
+.conteudos-lista-grid article header{
+	text-align: left;
+	padding: 0 10px;
+	height: 200px;
+}
+.conteudos-lista-grid article header h2{
+	font-size: 16px;
+	line-height: 120%;
+}
+
+/*
+.conteudos-lista-grid footer{
+	border-top: 1px solid #eeeeee;
+	height:50px;
+}
+*/
+.conteudos-lista-grid footer .data{
+	position: absolute;
+	left:10px;
+	bottom: 15px;
+}
+.conteudos-lista footer .btn-group{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
+
+/*LISTA GRID - CAPA DE REVISTA*/
+/* .modulo-conteudos-lista-publicacao .conteudos-lista-grid article figure{
+	height: auto !important;
+	padding-top: 139%;
+} */
+.modulo-conteudos-lista-publicacao .conteudos-lista-grid article header{
+	height: 50px;
+}
+.modulo-conteudos-lista-publicacao .conteudos-lista-grid article header p,
+.modulo-conteudos-lista-publicacao .conteudos-lista-grid article header div{
+	display: none;
+}
+
+
+/*AGENDA - LISTA*/
+.modulo-eventos .conteudos-lista article figure{
+	padding-top: 40%;
+}
+.modulo-eventos .conteudos-lista article .resumo{
+	width: 100%;
+	max-width: 700px;
+	display: inline-block;
+}
+
+
+/*GALERIAS*/
+.modulo-galerias-lista > .conteudo-wrap > article {
+	margin-bottom: 50px;
+}
+.modulo-galerias-lista .lista{
+	text-align: center;
+}
+.modulo-galerias-lista .lista article{
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	max-width: 340px;
+	min-height: 465px;
+	margin: 0 5px 35px;
+	border:1px solid #dddddd;
+	box-shadow: 3px 3px 5px #999999;
+	background-color: #ffffff;
+}
+.modulo-galerias-lista .lista article figure{
+	width: 100%;
+	height: auto;
+	padding-top: 75%;
+	margin: 0 auto 10px auto;
+	background-repeat: no-repeat;
+	background-size:contain;
+	background-position: center center;
+	overflow: hidden;
+}
+.modulo-galerias-lista .lista article header{
+	text-align: left;
+}
+.modulo-galerias-lista .lista article h2{
+	font-size: 20px;
+	height: 130px;
+	padding: 0 10px;
+	line-height: 120%;
+}
+.modulo-galerias-lista .lista footer{
+	border-top: 1px solid #eeeeee;
+	height:50px;
+}
+.modulo-galerias-lista .lista footer .data{
+	position: absolute;
+	left:10px;
+	bottom: 15px;
+}
+.modulo-galerias-lista .lista footer .btn{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
+
+/*TAREFAS*/
+.tarefas .panel-body article:first-child {
+	background: #dff0d8;
+}
+.tarefas .panel-body article:nth-child(2) {
+	background: #f2dede;
+}
+.tarefas .panel-body article:nth-child(3) {
+	background: #fcf8e3;
+}
+.tarefas .panel-body article:nth-child(4) {
+	background: #e3f9c9;
+}
+
+/*FORMULÁRIO DE CONTATO*/
+.modulo-Leads form .help-block{
+	white-space: nowrap
+}
+.modulo-Leads .contatos--wrap-controles{
+    padding: 15px 0;
+    text-align: right;
+}
+
+/*CADASTRO*/
+.modulo-cadastro form .help-block{
+	white-space: nowrap
+}
+.cadastro--wrap-controles{
+    padding: 15px 0;
+    text-align: right;
+}
+
+/*RECUPERAR SENHA*/
+.modulo-formulario-recuperacao form{
+	max-width: 304px;
+	margin: auto;
+	text-align: center;
+}
+.modulo-formulario-recuperacao .form-control,
+.modulo-formulario-recuperacao .btn{
+	width: 100%;
+}
+.modulo-formulario-recuperacao .g-recaptcha{
+	margin-left: -5px;
+}
+
+/*FORMULÁRIO DE LOGIN*/
+.modulo-login .container-login{
+	max-width: 320px;
+	margin: auto;
+	text-align: center;
+}
+.modulo-login input,
+.modulo-login select,
+.modulo-login .btn{
+	margin-bottom: 10px !important;
+	width: 100% !important;
+}
+.modulo-login .select2-container--bootstrap,
+.modulo-login .select2-selection.form-control{
+	border-radius: 0 !important;
+	text-align: left;
+}
+
+/*PRODUTOS*/
+.modulo-Produtos .produto--botao-adicionar{
+	letter-spacing: 0.15rem;
+}
+.modulo-Produtos .produto--preco-mercado{
+	padding: 2rem 1rem 1rem 1rem;
+}
+
+
+/*PEDIDOS*/
+.modulo-Pedidos .panel-body h4{
+    margin-bottom: 25px;
+}
+
+.modulo-Pedidos .pedido-itens--th-periodo{
+    width: 120px !important;
+}
+.modulo-Pedidos .pedido-itens--th-controles{
+    width: 120px !important;
+}
+
+.pedido--pagamento .btn{
+    width: 100%;
+    padding: 20px;
+    width: 100%;
+    min-height: 84px;
+    margin-bottom: 20px;
+}
+.pedido--pagamento .btn span{
+    font-size: 3rem;
+    vertical-align: middle;
+}
+
+.pedido--pagamento .btn span.fa{
+    font-size: 3.5rem;
+    margin-right: 1rem;
+}
+.pedido--pagamento .btn span:last-child{
+    font-weight: bold;
+}
+.pedido--pagamento .btn span.check{
+    display: none;
+}
+.pedido--pagamento .btn.active span.check{
+    display: block;
+    position: absolute;
+    top:5px;
+    right: 10px;
+}
+
+.modulo-Pedidos .btn-pagseguro{
+    background-image: url(/biblioteca/assets/img/logo-pagseguro.png) !important;
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.modulo-Pedidos .btn-adicionar-mais{
+	margin: 20px 0 !important;
+	font-weight: 600;
+	letter-spacing: 0.5rem;
+}
+
+.pedido--navegacao .btn{
+	margin-bottom: 20px;
+}
+
+.pedido--navegacao .btn span{
+	display: block;
+	padding: 10px 0;
+}
+
+/*LISTA DE ESPERA*/
+
+.espera .row{
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+@media screen and (min-width:360px) {
+	.modulo-formulario-recuperacao .g-recaptcha{
+		margin-left: 0;
+	}
+}
+@media screen and (min-width:1024px) {
+	.menu-wrap{
+		width: 25%;
+		padding-right: 10px;
+		margin-right: 10px;
+	}
+	.conteudo-wrap{
+		width: 73.5%;
+	}
+	.conteudo-wrap .video{
+		max-width: 994px;
+		/*Eu sei, é esquisito, mas o bootstrap usa essa propriedade
+		para ajustar a altura do container do player dinamicamente.
+		Então para fixar uma altura máxima é necessário fazer o reset
+		fixando um valor para padding-bottom.
+		A regra original no bootstrap é a classe .embed-responsive-16by9
+		*/
+		padding-bottom: 560px;
+	}
+
+	.conteudos-lista article header figure{
+		float: left;
+		margin: 0 25px 25px 0;
+	}
+	.conteudos-lista article header p{
+		display: inline-block;
+		margin-right: 12px;
+	}
+
+	.modulo-galerias-lista .lista article{
+		max-width: 350px;
+	}
+
+
+}
+@media screen and (min-width:1366px) {
+	.conteudo-wrap{
+		width: 73.66%;
+	}
+}

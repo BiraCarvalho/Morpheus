@@ -1,0 +1,25 @@
+{
+  "name": "Plataforma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootbox": "^4.4.0",
+    "bootstrap": "3.3.7",
+    "bootstrap-datepicker": "^1.7.1",
+    "bootstrap-fileinput": "^4.4.6",
+    "bootstrap-filestyle": "^1.2.1",
+    "ckeditor": "^4.10.1",
+    "jquery": "^3.2.1",
+    "jquery-migrate": "^3.0.1",
+    "jquery-validation": "^1.17.0",
+    "js-cookie": "^2.2.0",
+    "kcfinder": "https://github.com/sunhater/kcfinder#master",
+    "modaal": "^0.3.1",
+    "select2": "^4.0.4",
+    "select2-bootstrap-theme": "^0.1.0-beta.10",
+    "summernote": "^0.8.8",
+    "sweetalert2": "^7.1.0"
+  }
+}

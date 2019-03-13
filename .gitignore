@@ -1,0 +1,17 @@
+biblioteca/vendor/
+biblioteca/node_modules/
+dados/produtos/*
+dados/midias/*
+.logs/
+.vscode/
+
+dados/pagseguro.log.txt
+
+### Dreamweaver ###
+_notes
+_compareTemp
+configs/
+dwsync.xml
+dw_php_codehinting.config
+*.mno
+

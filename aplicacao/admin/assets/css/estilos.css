@@ -1,0 +1,200 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 30px; /* Margin bottom by footer height */
+    font-size:13px !important;
+}
+main{
+    position:relative;
+}
+
+/* Bootstrap Resets */
+.bootstrap--no-gutter{
+    padding-left: 0;
+    padding-right: 0;
+}
+.bootstrap--5px-gutter{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+}
+.bootstrap--5px-padding-top{
+    padding-top:25px;
+}
+.bootstrap--120px-with{
+    width: 120px;
+}
+
+.form-control,
+.select2-container--bootstrap .select2-selection.form-control{
+    border-radius: 2px;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+/* Auxiliares */
+.margin-right-10px{
+    margin-right: 10px;
+}
+
+/* Módulos e Componentes */
+.admin--modulo-titulo{
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/*Módulo Login*/
+.admin--wrap-form-login{
+  width: 100%;
+  max-width: 300px;
+  margin: 10% auto;
+  padding: 5px;
+}
+.admin--wrap-form-login .panel{
+  background-color: #fafafa;
+}
+.admin--form-login{
+  margin:10px;
+}
+
+/*Form*/
+#uuid{
+    text-align: center;
+    font-size: 82%;
+}
+.admin--form-main .span-error{
+    display: block;
+    padding: 5px 2px;
+    color: #cc6666;
+}
+.admin--form-main .nav-tabs{
+    margin-bottom: 20px;
+}
+.admin--form-main .imagens .panel-body{
+    text-align: center;
+}
+.admin--form-main .imagens .panel-body .thumbnail{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 30%;
+    min-height: 300px;
+    margin: 1%;
+}
+.admin--form-main .imagens .panel-body .thumbnail .buttons{
+    text-align: right;
+    width: 97%;
+    padding: 0;
+    position: absolute;
+    bottom: 5px;
+}
+
+/*Componente Lista*/
+.admin--lista .pagination{
+    margin: 0;
+}
+.admin--lista .coluna-120px-with{
+    width:120px;
+}
+.admin--lista .lista--controles{
+    width:150px;
+    text-align: center;
+}
+
+.admin--lista .lista--coluna-ID{
+    width: 80px;
+}
+.admin--lista .admin--filtros-busca-termo{
+    min-width: 180px;
+}
+.admin--lista .admin--filtros-busca-coluna{
+    min-width: 180px;
+}
+.admin--lista .lista--filtro-secoes-select,
+.admin--lista .lista--filtro-grupos-select{
+    width:100%;
+    max-width: 250px;
+}
+.admin--lista .table{
+    margin-bottom: 0;
+}
+.admin--lista .table th,
+.admin--lista .table td{
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 12px;
+}
+.admin--lista .table th{
+    font-size: 1.1rem;
+}
+.admin--lista .lista--ordem{
+    white-space: nowrap;
+}
+.admin--lista .lista--ordem a{
+    text-decoration: none;
+}
+.admin--lista .lista--ordem a:hover{
+    color:#ccc;
+}
+.admin--lista .lista--ordem-ativa-asc .lista--seta-asc{
+    color:#f00 !important;
+}
+.admin--lista .lista--ordem-ativa-desc .lista--seta-desc{
+    color:#f00 !important;
+}
+.admin--lista .lista--offset-select{
+    width: 80px;
+}
+
+/*Meta Forms*/
+.admin--forms-meta-button-adicionar{
+    float: right;
+    margin-top: -5px;
+}
+.admin--forms-meta-button-remover{
+    float: left;
+    margin-top: 27px;
+    margin-right: 15px;
+}
+
+
+/*Pedidos*/
+.pedido-itens--situacao-excluido{
+    text-decoration: line-through;
+    color: #999;
+}
+.pedido-itens--th-periodo,
+.pedido-itens--td-periodo{
+    text-align: right;
+    width: 100px;
+}
+.pedido-itens--th-preco,
+.pedido-itens--td-preco,
+.pedido-itens--soma-wrap{
+    text-align: right;
+    width: 100px;
+    padding-right: 20px !important;
+}
+.pedido-itens--td-controle{
+    width: 75px;
+    text-align: center;
+}
+.pedido-itens--tfoot{
+    background-color: #eee;
+    font-weight: bold;
+}

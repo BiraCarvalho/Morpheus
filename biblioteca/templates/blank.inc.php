@@ -1,0 +1,1 @@
+<?php include_once __MODULOS_PATH . "/" . $secao_modulo . "/formatos/init.inc.php"; ?>

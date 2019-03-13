@@ -1,0 +1,19 @@
+{
+    "config": {
+    	"vendor-dir" : "vendor/composer"
+    },
+    "require": {
+        "phpmailer/phpmailer"           : "5.2.*",
+        "intervention/image"            : "2.3.*",
+        "guzzlehttp/guzzle"             : "6.2.*",
+        "fg/multiplayer"                : "1.2.*",
+        "facebook/graph-sdk"            : "5.5.*",
+        "doctrine/dbal"                 : "2.5.*",
+        "symfony/console"               : "3.3.*",
+        "symfony/debug"                 : "3.3.*",
+        "symfony/var-dumper"            : "3.3.*",
+        "pagerfanta/pagerfanta"         : "1.0.*",
+        "maximebf/debugbar"             : "1.14.*",
+        "ramsey/uuid"                   : "3.7.*"
+    }
+}
