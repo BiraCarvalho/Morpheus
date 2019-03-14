@@ -14,6 +14,7 @@
         "symfony/var-dumper"            : "3.3.*",
         "pagerfanta/pagerfanta"         : "1.0.*",
         "maximebf/debugbar"             : "1.14.*",
-        "ramsey/uuid"                   : "3.7.*"
+        "ramsey/uuid"                   : "3.7.*",
+        "studio-42/elfinder": "^2.1"
     }
 }
