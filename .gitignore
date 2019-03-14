@@ -1,5 +1,5 @@
 biblioteca/vendor/
-biblioteca/node_modules/
+node_modules/
 dados/produtos/*
 dados/midias/*
 .logs/
