@@ -3,7 +3,7 @@ return [
 	"Rotas" => [
 
         //Site
-        "home"       => [ "Diretorio" => "Site", "Privado" => 0, "Uri" => __SITE_PATH . "/pagina.php",       "Titulo" => "Home"                         ],
+        //"home"       => [ "Diretorio" => "Site", "Privado" => 0, "Uri" => __SITE_PATH . "/pagina.php",       "Titulo" => "Home"                         ],
         "login"      => [ "Diretorio" => "Site", "Privado" => 0, "Uri" => __SITE_PATH . "/pagina.php",       "Titulo" => "Login"                        ],
         "pagina"     => [ "Diretorio" => "Site", "Privado" => 0, "Uri" => __SITE_PATH . "/pagina.php",       "Titulo" => ""                             ],
         "construcao" => [ "Diretorio" => "Site", "Privado" => 0, "Uri" => __SITE_PATH . "/construcao.php",   "Titulo" => "Projeto em Desenvolvimento"   ],
