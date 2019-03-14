@@ -4,12 +4,12 @@ CKEDITOR.editorConfig = function( config ) {
 		config.allowedContent            = true,
 		//config.pasteFilter               = null,
 
-		config.filebrowserBrowseUrl      = '/biblioteca/kcfinder/browse.php?type=file',
-		config.filebrowserImageBrowseUrl = '/biblioteca/kcfinder/browse.php?type=image',
-		config.filebrowserFlashBrowseUrl = '/biblioteca/kcfinder/browse.php?type=flash',
-		config.filebrowserUploadUrl      = '/biblioteca/kcfinder/upload.php?type=file',
-		config.filebrowserImageUploadUrl = '/biblioteca/kcfinder/upload.php?type=image',
-		config.filebrowserFlashUploadUrl = '/biblioteca/kcfinder/upload.php?type=flash',
+		config.filebrowserBrowseUrl      = '/biblioteca/vendor/composer/sunhater/kcfinder/browse.php?type=file',
+		config.filebrowserImageBrowseUrl = '/biblioteca/vendor/composer/sunhater/kcfinder/browse.php?type=image',
+		config.filebrowserFlashBrowseUrl = '/biblioteca/vendor/composer/sunhater/kcfinder/browse.php?type=flash',
+		config.filebrowserUploadUrl      = '/biblioteca/vendor/composer/sunhater/kcfinder/upload.php?type=file',
+		config.filebrowserImageUploadUrl = '/biblioteca/vendor/composer/sunhater/kcfinder/upload.php?type=image',
+		config.filebrowserFlashUploadUrl = '/biblioteca/vendor/composer/sunhater/kcfinder/upload.php?type=flash',
 
 		config.contentsCss  = 'assets/css/ck.css',
 
