@@ -47,10 +47,6 @@
 	<?php } ?>
     <hr />
 	<footer class="pagina-rodape">
-
-		<div class="share-buttons pull-right">
-			<?=helpers__share_buttons( $secao_slug, $slug, $conteudo['Titulo'] );?>
-		</div>
         <div class="clearfix"></div>
 	</footer>
 
