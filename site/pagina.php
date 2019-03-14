@@ -1,1 +1,1 @@
-Página
+<?php include_once __BIBLIOTECA_PATH . "/templates/default.inc.php" ?>
