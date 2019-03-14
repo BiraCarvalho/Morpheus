@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f45c20a5a0c2b7a379e33ca8f0760003",
+    "content-hash": "86a19a4702cfd6ea5ec29eef7ce8a595",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1306,6 +1306,61 @@
             "time": "2018-01-20T00:28:24+00:00"
         },
         {
+            "name": "sunhater/kcfinder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunhater/kcfinder.git",
+                "reference": "b645d2a81e647d63780c238b130593e32b4d95a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunhater/kcfinder/zipball/b645d2a81e647d63780c238b130593e32b4d95a9",
+                "reference": "b645d2a81e647d63780c238b130593e32b4d95a9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "ext-exif": "*",
+                "ext-fileinfo": "*",
+                "ext-gmagick": "*",
+                "ext-http": "*",
+                "ext-imagick": "*",
+                "ext-sockets": "*",
+                "ext-zip": "*"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+",
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Tzonkov",
+                    "email": "sunhater@sunhater.com",
+                    "homepage": "http://sunhater.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "KCFinder web file manager",
+            "homepage": "http://kcfinder.sunhater.com",
+            "keywords": [
+                "explorer",
+                "file",
+                "file explorer",
+                "file manager",
+                "finder",
+                "kcfinder",
+                "manager"
+            ],
+            "time": "2014-09-27T18:47:34+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "v3.3.18",
             "source": {
@@ -1560,7 +1615,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "sunhater/kcfinder": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
