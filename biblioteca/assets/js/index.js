@@ -1,7 +1,7 @@
 $(".data").on("keyup",function(){
     mascara(this, mdata);
 })
-$(".fone").on("keyup",function(){
+$(".telefone").on("keyup",function(){
     mascara(this, mtel);
 })
 $(".cpf").on("keyup",function(){
