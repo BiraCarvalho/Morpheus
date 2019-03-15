@@ -84,7 +84,7 @@ var pagina_total = $(".paginador").data('pagina-total');
 $('.paginador').bootpag({
 	page: pagina_atual,
 	maxVisible: 6,
-	leaps: true, 
+	leaps: true,
 	prev: '<',
 	next: '>',
 	firstLastUse: true,
@@ -93,10 +93,10 @@ $('.paginador').bootpag({
 	total: pagina_total,
 	wrapClass: 'pagination justify-content-center'
 }).on('page', function(event, num){
-	
+
 	var pagina_href  = $(this).data('pagina-href');
 	var query_string = $(this).data('pagina-query-string');
 	query_string = query_string ? query_string : "";
-	
+
 	location.href = pagina_href + "/pagina/" + num + query_string;
 });

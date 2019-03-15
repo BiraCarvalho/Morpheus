@@ -1,3 +1,26 @@
+$('.datepicker').datepicker({
+    language: "pt-BR"
+});
+$(".data").on("keyup",function(){
+    mascara(this, mdata);
+})
+$(".telefone").on("keyup",function(){
+    mascara(this, mtel);
+})
+$(".cpf").on("keyup",function(){
+    mascara(this, mcpf);
+})
+$(".decimal").on("keyup",function(){
+    mascara(this, mvalor);
+})
+$(".numero").on("keyup",function(){
+    mascara(this, mnum);
+})
+$(".cep").on("keyup",function(){
+    mascara(this, mcep);
+})
+
+
 //Ativa Select2 para selects
 $.fn.select2.defaults.set("theme", "bootstrap");
 $.fn.select2.defaults.set("containerCssClass", ":all:");
@@ -26,27 +49,6 @@ $("select.disabled").select2({
     disabled : true,
 });
 
-$('.datepicker').datepicker({
-    language: "pt-BR"
-});
-$(".data").on("keyup",function(){
-    mascara(this, mdata);
-})
-$(".fone").on("keyup",function(){
-    mascara(this, mtel);
-})
-$(".cpf").on("keyup",function(){
-    mascara(this, mcpf);
-})
-$(".decimal").on("keyup",function(){
-    mascara(this, mvalor);
-})
-$(".numero").on("keyup",function(){
-    mascara(this, mnum);
-})
-$(".cep").on("keyup",function(){
-    mascara(this, mcep);
-})
 
 var busca_cep = function(){
     jQuery(".cep").on( "blur", function(){
@@ -148,18 +150,3 @@ $("input[name='registros']").on("change",function(event){
 //         }
 //     );
 // })
-
-$(".botao--publicar").on("click",function(event){
-    event.preventDefault()
-    var form = this;
-    bootbox.confirm(
-        "Salvar as alterações e publicar o conteúdo? <br />A Situação será modificada para Publicado.",
-        function(result)
-        {
-            if(result){
-                $("select#Situacao").val("1");
-                $(form).parents("form").submit();
-            }
-        }
-    );
-})
