@@ -42,6 +42,18 @@ echo includes__load_componente("forms", [
 ]);
 
 echo includes__load_componente("forms", [
+    "type"	  		=> "input-text",
+    "label"   		=> "Escala",
+    "id"      		=> "Escala",
+    "name"    		=> "Escala",
+    "form-group"	=> true,
+    "class"   		=> "",
+    "col-grid"  	=> "col-md-12",
+    "attrs"   		=> "",
+    "value"   		=> $dados["resultado"]["Escala"]
+]);
+
+echo includes__load_componente("forms", [
     "type"			=> "input-text",
     "label"   		=> "Data",
     "id"      		=> "Data",

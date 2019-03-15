@@ -24,8 +24,9 @@ switch ($__operacao) {
         $metadados[$tabela."Id"] = $registro_id;
         $metadados["Tag"]        = filter_input(INPUT_POST, "tag");
         $metadados["Ordem"]      = "0";
+        $metadados["Valor"]      = "0";
         $metadados["Titulo"]     = "";
-        $metadados["Valor"]      = "";
+        $metadados["Texto"]      = "";
 
         $meta_id = dbal__write($metadados, $tabela."Meta", 0);
 
