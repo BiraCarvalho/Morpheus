@@ -101,3 +101,13 @@ function questionarios__grupos_filtros( $grupo_id )
 
     return $grupos_where;
 }
+
+function questionarios__perguntas(int $questionario_id)
+{
+    $consulta = "SELECT *
+                    FROM QuestionariosMeta
+                    WHERE QuestionariosId='{$questionario_id}}'
+                    ORDER BY Ordem, Id";
+
+    return global__db()->fetchAll($consulta);
+}

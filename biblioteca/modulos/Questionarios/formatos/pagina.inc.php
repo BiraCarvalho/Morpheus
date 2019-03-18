@@ -10,7 +10,7 @@
 
 	<div class="clearfix"></div>
 
-	<?php require_once("parts/pagina-meta-accordion.part.php");?>
+	<?php require_once("parts/pagina-perguntas.part.php");?>
 
     <hr />
 
