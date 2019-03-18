@@ -6,9 +6,9 @@ return [
     			"Tipo"     => "mysql",
     			"Driver"   => "pdo_mysql",
     			"Servidor" => "localhost",
-    			"Usuario"  => "",
-    			"Senha"	   => "",
-    			"Banco"	   => "",
+    			"Usuario"  => "triconsult",
+    			"Senha"	   => "8456@3474#",
+    			"Banco"	   => "Triconsult",
     			"Prefixo"  => "",
     			"Charset"  => "utf8"
     		]
