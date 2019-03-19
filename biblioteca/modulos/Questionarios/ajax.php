@@ -46,6 +46,36 @@ switch ($__operacao) {
         ];
 
         break;
+
+    case "resposta-check":
+
+        $resposta["CadastrosId"]         = filter_input(INPUT_POST, "cadastro_id",    FILTER_SANITIZE_NUMBER_INT);
+        $resposta["QuestionariosMetaId"] = filter_input(INPUT_POST, "pergunta_id",    FILTER_SANITIZE_NUMBER_INT);
+        $resposta["Valor"]               = filter_input(INPUT_POST, "resposta_value", FILTER_SANITIZE_NUMBER_INT);
+  
+        $consulta = "SELECT Id 
+                       FROM {$tabela}Respostas 
+                      WHERE CadastrosId = ?
+                        AND QuestionariosMetaId = ?";
+
+        $resposta_id = global__db()->fetchColumn($consulta, [$resposta["CadastrosId"], $resposta["QuestionariosMetaId"]]);               
+        
+        $resposta_id = dbal__write($resposta, $tabela."Respostas", $resposta_id);
+        
+        $retorno = [
+            "resposta_id" => $resposta_id
+        ];
+
+        break;
+
+    case "resposta-uncheck":
+
+        $retorno = [
+            "resposta" => "uncheck"
+        ];
+
+    break;
+
 }
 
 echo json_encode($retorno, JSON_FORCE_OBJECT);

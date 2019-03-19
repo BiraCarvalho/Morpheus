@@ -22,12 +22,20 @@ jQuery(function()
 
     jQuery(".form-meta--remover").on("click", function(event)
         {
-            metaRemover(event, this, "ajax.php?mod=" + __Modulo);
+            metaRemover(event, this, "/ajax?mod=" + __Modulo);
         }
     );
+
     jQuery(".form-meta--adicionar").on("click", function(event)
         {
-            metaAdicionar(event, this, "ajax.php?mod=" + __Modulo);
+            metaAdicionar(event, this, "/ajax?mod=" + __Modulo);
+        }
+    );
+
+
+    jQuery(".questionarios--resposta").on("click", function(event)
+        {
+            toogleResposta(event, this, "/ajax?mod=" + __Modulo);
         }
     );
 
@@ -102,3 +110,63 @@ var metaRemover = function(event, element, url)
     },
     "json")
 }
+
+
+var toogleResposta = function(event, element, url)
+{
+    var jqElement = jQuery(element);
+
+    
+    checkResposta("check", event, element, url);
+    jqElement.siblings().removeClass('active');
+    jqElement.addClass("active");    
+    
+    // if( jqElement.hasClass('active') ){
+    // }
+    // else{
+
+    //     checkResposta("uncheck", event, element, url);
+    //     jqElement.siblings().removeClass('active');
+    //     jqElement.addClass("active");
+
+    // }
+}
+
+var checkResposta = function(action, event, element, url)
+{
+    event.preventDefault();
+
+    var cid    = jQuery(element).data("cadastro-id");
+    var pid    = jQuery(element).data("pergunta-id");
+    var rvalue = jQuery(element).val(); //Resposta
+
+    if(!cid){
+        console.log("Falta id do cadastro de clientes!");
+        return false;
+    }
+
+    if(!pid){
+        console.log("Falta id da pergunta!");
+        return false;
+    }
+
+    if(!rvalue){
+        console.log("Falta id da resposta!");
+        return false;
+    }
+
+    jQuery.post(url,
+    {
+        "op"             : "resposta-" + action,
+        "cadastro_id"    : cid,
+        "pergunta_id"    : pid,
+        "resposta_value" : rvalue,
+    },
+    function(data)
+    {
+        console.log("Check Reposta# " + data.resposta_id);
+    },
+    "json")
+}
+
+

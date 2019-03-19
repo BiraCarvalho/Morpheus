@@ -104,10 +104,17 @@ function questionarios__grupos_filtros( $grupo_id )
 
 function questionarios__perguntas(int $questionario_id)
 {
-    $consulta = "SELECT *
-                    FROM QuestionariosMeta
-                    WHERE QuestionariosId='{$questionario_id}}'
-                    ORDER BY Ordem, Id";
+    $consulta = "SELECT 
+                    Perguntas.Id,
+                    Perguntas.Tag,
+                    Perguntas.Titulo,
+                    Perguntas.Texto,
+                    Perguntas.Ordem,
+                    Respostas.Valor AS RespostasValor
+                    FROM QuestionariosMeta AS Perguntas
+                    LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosMetaId
+                    WHERE Perguntas.QuestionariosId = '{$questionario_id}}'
+                    ORDER BY Perguntas.Ordem, Perguntas.Id";
 
     return global__db()->fetchAll($consulta);
 }
