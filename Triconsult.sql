@@ -1,13 +1,13 @@
--- MySQL dump 10.16  Distrib 10.1.37-MariaDB, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
 --
 -- Host: localhost    Database: Triconsult
 -- ------------------------------------------------------
--- Server version	10.1.37-MariaDB-0+deb9u1
+-- Server version	5.7.25
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -152,7 +152,7 @@ CREATE TABLE `Conteudos` (
   PRIMARY KEY (`Id`),
   KEY `secId` (`Secoes`(767)),
   KEY `pubSeo` (`Slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE `ConteudosMeta` (
   PRIMARY KEY (`Id`),
   KEY `ConteudosId` (`ConteudosId`),
   KEY `Tag` (`Tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +246,7 @@ CREATE TABLE `Midias` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `uuid` (`uuid`),
   KEY `Nome` (`Nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -295,7 +295,7 @@ CREATE TABLE `Questionarios` (
 
 LOCK TABLES `Questionarios` WRITE;
 /*!40000 ALTER TABLE `Questionarios` DISABLE KEYS */;
-INSERT INTO `Questionarios` VALUES ('083012aa-0cdb-43e8-72ac-3644cd8b3ebf',1,NULL,'2','Individual','individual','0000-00-00','<p>Seamlessly architect highly efficient schemas via resource maximizing bandwidth. Holisticly embrace effective markets for installed base web-readiness. Objectively disintermediate interoperable processes without robust schemas. Synergistically enable r','<p>Enthusiastically iterate maintainable leadership skills before dynamic collaboration and idea-sharing. Competently extend proactive imperatives before ubiquitous paradigms. Holisticly brand web-enabled infrastructures for mission-critical networks. Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n\r\n<p>Seamlessly architect highly efficient schemas via resource maximizing bandwidth. Holisticly embrace effective markets for installed base web-readiness. Objectively disintermediate interoperable processes without robust schemas. Synergistically enable robust quality vectors rather than cross-unit infrastructures. Compellingly transition fully tested methodologies through market positioning data.</p>\r\n\r\n<p>Dynamically enhance e-business human capital for error-free platforms. Collaboratively incubate integrated e-services rather than unique relationships. Uniquely orchestrate scalable solutions rather than user-centric information. Proactively restore e-business e-tailers rather than functional value. Intrinsicly conceptualize client-centric services via high standards in communities.</p>\r\n\r\n<p>Credibly utilize extensible processes rather than performance based infrastructures. Dynamically transform worldwide methodologies after scalable alignments. Globally reconceptualize cooperative imperatives whereas progressive process improvements. Proactively maintain stand-alone synergy with covalent potentialities. Monotonectally facilitate wireless innovation vis-a-vis maintainable solutions.</p>\r\n\r\n<p>Conveniently disseminate interdependent information rather than just in time initiatives. Monotonectally pursue functionalized internal or \\\"organic\\\" sources after cutting-edge internal or \\\"organic\\\" sources. Completely benchmark vertical opportunities rather than competitive opportunities. Compellingly reinvent integrated action items whereas covalent innovation. Seamlessly exploit principle-centered process improvements after intuitive leadership.</p>\r\n\r\n<p>Distinctively predominate clicks-and-mortar ROI via integrated scenarios. Monotonectally syndicate market-driven growth strategies vis-a-vis world-class intellectual capital. Intrinsicly administrate top-line e-markets after pandemic niches. Monotonectally repurpose resource-leveling services for cross-platform methods.</p>\r\n',10,0,1,0,0,0,'2019-03-14 23:44:13',NULL),('19df18c5-369b-2571-e8fa-41da28857464',2,NULL,'2','Organizacional','organizacional','0000-00-00','','',10,0,1,0,0,0,NULL,NULL);
+INSERT INTO `Questionarios` VALUES ('083012aa-0cdb-43e8-72ac-3644cd8b3ebf',1,NULL,'2','Individual','individual','0000-00-00','<p>Seamlessly architect highly efficient schemas via resource maximizing bandwidth. Holisticly embrace effective markets for installed base web-readiness. Objectively disintermediate interoperable processes without robust schemas. Synergistically enable r','<p>Enthusiastically iterate maintainable leadership skills before dynamic collaboration and idea-sharing. Competently extend proactive imperatives before ubiquitous paradigms. Holisticly brand web-enabled infrastructures for mission-critical networks. Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',10,0,1,0,0,0,'2019-03-18 23:57:03',NULL),('19df18c5-369b-2571-e8fa-41da28857464',2,'','2','Organizacional','organizacional','0000-00-00','','',10,0,0,0,1,0,'2019-03-19 01:49:34',0);
 /*!40000 ALTER TABLE `Questionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -318,7 +318,7 @@ CREATE TABLE `QuestionariosMeta` (
   KEY `ConteudosId` (`QuestionariosId`),
   KEY `Tag` (`Tag`),
   CONSTRAINT `QuestionariosMeta_ibfk_1` FOREIGN KEY (`QuestionariosId`) REFERENCES `Questionarios` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,7 +327,7 @@ CREATE TABLE `QuestionariosMeta` (
 
 LOCK TABLES `QuestionariosMeta` WRITE;
 /*!40000 ALTER TABLE `QuestionariosMeta` DISABLE KEYS */;
-INSERT INTO `QuestionariosMeta` VALUES (1,1,'MetaCampo','Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',1,0),(2,1,'MetaCampo','Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',2,0),(3,2,'MetaCampo','','',NULL,0),(4,1,'MetaCampo','Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products.&nbsp;</p>\r\n',3,0),(5,1,'MetaCampo','Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',4,0);
+INSERT INTO `QuestionariosMeta` VALUES (1,1,'MetaCampo','Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',1,1),(2,1,'MetaCampo','Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',2,2),(3,2,'MetaCampo','','',NULL,0),(4,1,'MetaCampo','Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products.&nbsp;</p>\r\n',3,3),(5,1,'MetaCampo','Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',4,4),(6,1,'MetaCampo','Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',5,5);
 /*!40000 ALTER TABLE `QuestionariosMeta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,11 +340,11 @@ DROP TABLE IF EXISTS `QuestionariosRespostas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `QuestionariosRespostas` (
   `Id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `CadastrosId` bigint(20) DEFAULT NULL,
+  `CadastrosId` bigint(20) NOT NULL,
   `QuestionariosMetaId` bigint(20) NOT NULL,
   `Valor` bigint(20) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,6 +353,7 @@ CREATE TABLE `QuestionariosRespostas` (
 
 LOCK TABLES `QuestionariosRespostas` WRITE;
 /*!40000 ALTER TABLE `QuestionariosRespostas` DISABLE KEYS */;
+INSERT INTO `QuestionariosRespostas` VALUES (12,1,1,5),(13,1,2,5),(14,1,4,4),(15,1,5,5),(17,1,6,5);
 /*!40000 ALTER TABLE `QuestionariosRespostas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -512,4 +513,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-15  0:00:31
+-- Dump completed on 2019-03-19  1:57:46
