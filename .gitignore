@@ -2,6 +2,7 @@ biblioteca/vendor/
 node_modules/
 dados/produtos/*
 dados/midias/*
+dados/editor/*
 .logs/
 .vscode/
 
