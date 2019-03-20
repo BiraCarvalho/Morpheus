@@ -113,8 +113,24 @@ function questionarios__perguntas(int $questionario_id)
                     Respostas.Valor AS RespostasValor
                     FROM QuestionariosMeta AS Perguntas
                     LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosMetaId
-                    WHERE Perguntas.QuestionariosId = '{$questionario_id}}'
+                    WHERE Perguntas.QuestionariosId = '{$questionario_id}'
                     ORDER BY Perguntas.Ordem, Perguntas.Id";
+
+    return global__db()->fetchAll($consulta);
+}
+
+function questionario__resultado_alinhar(int $questionario_id){
+
+    $consulta = "SELECT  
+                    Perguntas.Agrupamento, 
+                    SUM(Respostas.Valor) AS Soma, 
+                    COUNT(Perguntas.Id) AS NumeroDePerguntas, 
+                    SUM(Respostas.Valor)/COUNT(Perguntas.Id) AS Media
+                    FROM QuestionariosMeta AS Perguntas 
+                    LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosMetaId
+                    where Perguntas.QuestionariosId = '{$questionario_id}'
+                    GROUP BY Perguntas.Agrupamento
+                    ORDER BY Perguntas.Agrupamento";
 
     return global__db()->fetchAll($consulta);
 }

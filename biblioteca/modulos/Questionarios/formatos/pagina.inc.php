@@ -10,12 +10,14 @@
 
 	<div class="clearfix"></div>
 
-	<?php require_once("parts/pagina-perguntas.part.php");?>
+	<?php require_once __DIR__ . "/parts/pagina-perguntas.part.php" ?>
 
     <hr />
 
-	<footer class="pagina-rodape">
-        <div class="clearfix"></div>
+	<footer class="pagina-rodape text-center">
+		<a class="btn btn-lg btn-danger" href="/questionarios-alinhar/modelo?exibir=resultado">Resultado</a>
+		<div class="clearfix"></div>
 	</footer>
 
 </article>
+<hr class="mb-4" />
