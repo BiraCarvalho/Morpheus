@@ -1,3 +1,9 @@
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <span class="text-muted">Triconsult@2019 - Todos os direitos reservados</span>
+        </div>
+    </footer>
+
     <script src="/site/assets/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/site/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/site/assets/node_modules/popper.js/dist/umd/popper.min.js"></script>
