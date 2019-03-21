@@ -52,6 +52,9 @@ switch ($slug) {
         if( autenticacao__get_logon() ){
             global__redirect($cliente_uri);
         }
+        else{
+            global__redirect($autenticacao_uri);
+        }
 
         break;
 }

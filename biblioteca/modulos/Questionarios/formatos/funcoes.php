@@ -102,7 +102,7 @@ function questionarios__grupos_filtros( $grupo_id )
     return $grupos_where;
 }
 
-function questionarios__perguntas(int $questionario_id)
+function questionarios__perguntas(int $questionario_id, int $cadastro_id)
 {
     $consulta = "SELECT 
                     Perguntas.Id,
@@ -112,7 +112,8 @@ function questionarios__perguntas(int $questionario_id)
                     Perguntas.Agrupamento,
                     Respostas.Valor
                     FROM QuestionariosPerguntas AS Perguntas
-                    LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosPerguntasId
+                    LEFT JOIN QuestionariosRespostas AS Respostas 
+                    ON Perguntas.Id = Respostas.QuestionariosPerguntasId AND Respostas.CadastrosId = {$cadastro_id}
                     WHERE Perguntas.QuestionariosId = '{$questionario_id}'
                     ORDER BY Perguntas.Agrupamento, Perguntas.Ordem, Perguntas.Id";
 

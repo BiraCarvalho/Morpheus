@@ -1,4 +1,4 @@
-<?php if( $perguntas = questionarios__perguntas($conteudo_id) ){ ?>
+<?php if( $perguntas = questionarios__perguntas($conteudo_id, $cadastro["Id"]) ){ ?>
 
     <?php foreach( $perguntas as $pergunta ){ ?>
 
@@ -12,7 +12,7 @@
                 <?php $resposta_active = (int)$pergunta['Valor'] === (int)$resposta_id ? "active" : ""; ?>
                 <button id="resposta_<?=$resposta_id;?>" type="button" class="questionarios--resposta flex-fill m-1 btn btn-lg btn-outline-secondary <?=$resposta_active?>" 
                 autocomplete     = "off"
-                data-cadastro-id = "1"
+                data-cadastro-id = "<?=$cadastro["Id"]?>"
                 data-pergunta-id = "<?=$pergunta['Id'];?>"
                 value="<?=$resposta_id;?>"
                 >
