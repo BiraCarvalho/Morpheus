@@ -45,19 +45,7 @@
 							?>
 							</div>
 							<div class="row">
-							<?php
-                        	echo includes__load_componente("forms", [
-                        		"type"	  		=> "input-text",
-                        		"label"   		=> "E-mail",
-                        		"id"      		=> "Email",
-                        		"name"    		=> "Email",
-                        		"form-group" 	=> true,
-                        		"class"   		=> "",
-                        		"col-grid"		=> "col-md-8",
-                        		"attrs"   		=> [],
-                        		"value"   		=> $dados["resultado"]["Email"]
-                        	]);
-
+							<?php						
                         	echo includes__load_componente("forms", [
                         		"type"	  		=> "input-text",
                         		"label"   		=> "Telefone",
@@ -65,10 +53,32 @@
                         		"name"    		=> "Telefone",
                         		"form-group" 	=> true,
                         		"class"   		=> "telefone",
-                        		"col-grid"		=> "col-md-4",
+                        		"col-grid"		=> "col-md-3",
                         		"attrs"   		=> [],
                         		"value"   		=> $dados["resultado"]["Telefone"]
-                        	]);
+							]);
+                        	echo includes__load_componente("forms", [
+                        		"type"	  		=> "input-text",
+                        		"label"   		=> "E-mail",
+                        		"id"      		=> "Email",
+                        		"name"    		=> "Email",
+                        		"form-group" 	=> true,
+                        		"class"   		=> "",
+                        		"col-grid"		=> "col-md-6",
+                        		"attrs"   		=> [],
+                        		"value"   		=> $dados["resultado"]["Email"]
+                        	]);							
+							echo includes__load_componente("forms", [
+                        		"type"	  		=> "input-password",
+                        		"label"   		=> "Alterar Senha",
+                        		"id"      		=> "NovaSenha",
+                        		"name"    		=> "NovaSenha",
+                        		"form-group" 	=> true,
+                        		"class"   		=> "senha",
+                        		"col-grid"		=> "col-md-3",
+                        		"attrs"   		=> [],
+                        		"value"   		=> ''
+							]);							
                         	?>
 							</div>
 							<div class="row">

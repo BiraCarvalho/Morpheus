@@ -5,6 +5,7 @@ if ( ! defined( '__ROOT_PATH' ) ) {
 }
 
 require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/funcoes.php";
 
 echo includes__load_admin_part( "painel/header",
     [
@@ -44,9 +45,21 @@ switch ($__operacao) {
 
     case "salvar":
 
-        $__registro_id = dbal__write($_POST, $tabela, $__registro_id, []);
+        if( !$__registro_id ){
+            $_POST["Criacao"] = date("d/m/Y H:i:s");
+        }
 
-        dbal__update_meta($_POST, $tabela, $__registro_id);
+        $_POST["Atualizacao"]  = date("d/m/Y H:i:s");
+
+        if( $_POST["NovaSenha"] ){
+            $senha = filter_input(INPUT_POST,"NovaSenha");
+            $_POST["Senha"] = password_hash($senha,PASSWORD_DEFAULT);
+        }
+
+        $_POST['Agente'] = $_SERVER['HTTP_USER_AGENT'];
+        $_POST['Ip']     = $_SERVER['REMOTE_ADDR'];
+
+        $__registro_id = dbal__write($_POST, $tabela, $__registro_id, []);
 
         global__redirect( __ADMIN_BASE_URI . "/".admin__set_url($__modulo, "editar", $__registro_id) );
 
