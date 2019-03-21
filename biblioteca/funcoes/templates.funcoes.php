@@ -70,7 +70,7 @@ function templates__load_site($template__arquivo, $dados = [])
 
    if( autenticacao__get_logon() && $secao_slug != "autenticacao" ){
        $autenticacao__usuario_hash = autenticacao__get_usuario_uuid();
-       $autenticacao__usuario      = clientes__get_usuario($autenticacao__usuario_hash);
+       $autenticacao__usuario      = cadastros__get_usuario($autenticacao__usuario_hash);
    }
 
    $redirect_request = global__filter_request("redirect");
