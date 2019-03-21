@@ -1,0 +1,1 @@
+<?php include_once __BIBLIOTECA_PATH . "/templates/blank.inc.php";
