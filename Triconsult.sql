@@ -29,6 +29,7 @@ CREATE TABLE `Cadastros` (
   `Email` varchar(255) NOT NULL,
   `Telefone` varchar(255) NOT NULL,
   `Observacoes` text NOT NULL,
+  `Senha` varchar(255) NOT NULL,
   `Situacao` int(1) NOT NULL DEFAULT '1',
   `Arquivado` int(1) NOT NULL DEFAULT '0',
   `Ip` varchar(15) NOT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE `Cadastros` (
 
 LOCK TABLES `Cadastros` WRITE;
 /*!40000 ALTER TABLE `Cadastros` DISABLE KEYS */;
-INSERT INTO `Cadastros` VALUES ('c0467c25-43a3-231b-57a2-54aa545d0e19',1,'Ubiratã Carvalho Nogueira','bira@biracarvalho.com.br','(62) 98331-3227','Credibly syndicate strategic imperatives and low-risk high-yield alignments. Authoritatively cultivate cross functional niches before sticky materials. Proactively enable pandemic content for enterprise-wide action items. Phosfluorescently.',0,0,'','','0000-00-00 00:00:00'),('093c8470-dfc3-6db8-547f-405e3e76145d',2,'Ubirajara Carvalho Nogueira','jaracarvalho@hotmail.com','(19) 99652-2222','',1,0,'','','0000-00-00 00:00:00');
+INSERT INTO `Cadastros` VALUES ('c0467c25-43a3-231b-57a2-54aa545d0e19',1,'Ubiratã Carvalho Nogueira','bira@biracarvalho.com.br','(62) 98331-3227','Credibly syndicate strategic imperatives and low-risk high-yield alignments. Authoritatively cultivate cross functional niches before sticky materials. Proactively enable pandemic content for enterprise-wide action items. Phosfluorescently.','$2y$10$/U5LfrQ8ZcdoHXW4Q0zo3Ox0pBeJQOU.XBCduaZythisVrCGcdecK',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','0000-00-00 00:00:00'),('093c8470-dfc3-6db8-547f-405e3e76145d',2,'Ubirajara Carvalho Nogueira','jaracarvalho@hotmail.com','(19) 99652-2222','','$2y$10$ZGg/nLE4chRmDOwppOvm7ebgd8/PyR6uZw9UE0h1xeHlhOPw8JIkq',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `Cadastros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,40 +296,39 @@ CREATE TABLE `Questionarios` (
 
 LOCK TABLES `Questionarios` WRITE;
 /*!40000 ALTER TABLE `Questionarios` DISABLE KEYS */;
-INSERT INTO `Questionarios` VALUES ('083012aa-0cdb-43e8-72ac-3644cd8b3ebf',1,NULL,'2','Individual','individual','0000-00-00','<p>Seamlessly architect highly efficient schemas via resource maximizing bandwidth. Holisticly embrace effective markets for installed base web-readiness. Objectively disintermediate interoperable processes without robust schemas. Synergistically enable r','<p>Enthusiastically iterate maintainable leadership skills before dynamic collaboration and idea-sharing. Competently extend proactive imperatives before ubiquitous paradigms. Holisticly brand web-enabled infrastructures for mission-critical networks. Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',10,0,1,0,0,0,'2019-03-18 23:57:03',NULL),('19df18c5-369b-2571-e8fa-41da28857464',2,'','2','Organizacional','organizacional','0000-00-00','','',10,0,0,0,1,0,'2019-03-19 01:49:34',0);
+INSERT INTO `Questionarios` VALUES ('083012aa-0cdb-43e8-72ac-3644cd8b3ebf',1,NULL,'2','Modelo','modelo','0000-00-00','<p>Seamlessly architect highly efficient schemas via resource maximizing bandwidth. Holisticly embrace effective markets for installed base web-readiness. Objectively disintermediate interoperable processes without robust schemas. Synergistically enable r','<p>Enthusiastically iterate maintainable leadership skills before dynamic collaboration and idea-sharing. Competently extend proactive imperatives before ubiquitous paradigms. Holisticly brand web-enabled infrastructures for mission-critical networks. Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',10,0,1,0,0,0,'2019-03-20 22:54:09',NULL);
 /*!40000 ALTER TABLE `Questionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `QuestionariosMeta`
+-- Table structure for table `QuestionariosPerguntas`
 --
 
-DROP TABLE IF EXISTS `QuestionariosMeta`;
+DROP TABLE IF EXISTS `QuestionariosPerguntas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `QuestionariosMeta` (
+CREATE TABLE `QuestionariosPerguntas` (
+  `uuid` char(36) NOT NULL,
   `Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `QuestionariosId` bigint(20) NOT NULL,
-  `Tag` varchar(255) NOT NULL,
   `Titulo` varchar(255) DEFAULT NULL,
   `Texto` longtext,
-  `Valor` int(10) DEFAULT NULL,
-  `Ordem` int(10) DEFAULT '0',
+  `Ordem` int(11) DEFAULT '0',
+  `Agrupamento` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `ConteudosId` (`QuestionariosId`),
-  KEY `Tag` (`Tag`),
-  CONSTRAINT `QuestionariosMeta_ibfk_1` FOREIGN KEY (`QuestionariosId`) REFERENCES `Questionarios` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  CONSTRAINT `QuestionariosPerguntas_ibfk_1` FOREIGN KEY (`QuestionariosId`) REFERENCES `Questionarios` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `QuestionariosMeta`
+-- Dumping data for table `QuestionariosPerguntas`
 --
 
-LOCK TABLES `QuestionariosMeta` WRITE;
-/*!40000 ALTER TABLE `QuestionariosMeta` DISABLE KEYS */;
-INSERT INTO `QuestionariosMeta` VALUES (1,1,'MetaCampo','Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',1,1),(2,1,'MetaCampo','Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',2,2),(3,2,'MetaCampo','','',NULL,0),(4,1,'MetaCampo','Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products.&nbsp;</p>\r\n',3,3),(5,1,'MetaCampo','Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',4,4),(6,1,'MetaCampo','Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',5,5);
-/*!40000 ALTER TABLE `QuestionariosMeta` ENABLE KEYS */;
+LOCK TABLES `QuestionariosPerguntas` WRITE;
+/*!40000 ALTER TABLE `QuestionariosPerguntas` DISABLE KEYS */;
+INSERT INTO `QuestionariosPerguntas` VALUES ('',1,1,'Energistically evolve user friendly products vis-a-vis top-line value.','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',1,'1'),('',2,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',2,'1'),('',4,1,'Professionally foster user friendly systems through cross functional markets 6546546','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',3,'2'),('',5,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',4,'2'),('',6,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',5,'2'),('',7,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',6,'3'),('',8,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',7,'3'),('',9,1,'Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',8,'4'),('',10,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',9,'4'),('',11,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',10,'5'),('',14,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',11,'5'),('',15,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',12,'5'),('',16,1,'Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',13,'5'),('',17,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',14,'6'),('',18,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',15,'6'),('',19,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',16,'6'),('',20,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',17,'6'),('',21,1,'Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',18,'7'),('',22,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',19,'7'),('',23,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',20,'7'),('b243ee18-8abf-2bdb-170e-93e548e7ee7c',29,1,'','',1,'1');
+/*!40000 ALTER TABLE `QuestionariosPerguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -339,12 +339,15 @@ DROP TABLE IF EXISTS `QuestionariosRespostas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `QuestionariosRespostas` (
+  `uuid` char(36) NOT NULL,
   `Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `CadastrosId` bigint(20) NOT NULL,
-  `QuestionariosMetaId` bigint(20) NOT NULL,
+  `QuestionariosPerguntasId` bigint(20) NOT NULL,
   `Valor` bigint(20) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`Id`),
+  KEY `QuestionariosPerguntasId` (`QuestionariosPerguntasId`),
+  CONSTRAINT `QuestionariosRespostas_ibfk_1` FOREIGN KEY (`QuestionariosPerguntasId`) REFERENCES `QuestionariosPerguntas` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +356,7 @@ CREATE TABLE `QuestionariosRespostas` (
 
 LOCK TABLES `QuestionariosRespostas` WRITE;
 /*!40000 ALTER TABLE `QuestionariosRespostas` DISABLE KEYS */;
-INSERT INTO `QuestionariosRespostas` VALUES (12,1,1,5),(13,1,2,5),(14,1,4,4),(15,1,5,5),(17,1,6,5);
+INSERT INTO `QuestionariosRespostas` VALUES ('',12,1,1,4),('',13,1,2,6),('',14,1,4,4),('',15,1,5,5),('',17,1,6,7),('',18,1,7,5),('',19,1,8,7),('',20,1,9,5),('',21,1,10,4),('',22,1,11,5),('',23,1,14,5),('',24,1,15,3),('',25,1,16,8),('',26,1,17,7),('',27,1,18,5),('',28,1,19,6),('',29,1,20,5),('',30,1,22,6),('',31,1,23,5),('',32,1,21,5);
 /*!40000 ALTER TABLE `QuestionariosRespostas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,7 +406,7 @@ CREATE TABLE `Secoes` (
 
 LOCK TABLES `Secoes` WRITE;
 /*!40000 ALTER TABLE `Secoes` DISABLE KEYS */;
-INSERT INTO `Secoes` VALUES ('a73fc500-a39f-5d6c-4973-740f1556',1,0,0,NULL,'Home','home','<p class=\\\"text-center\\\"><img alt=\\\"\\\" src=\\\"/dados/editor/image/Bira_Carvalho(3).png\\\" style=\\\"width: 500px; height: 500px;\\\" /></p>\r\n','','Secoes','','','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL),('a32d715c-5976-6e55-0164-6d411e83',2,0,0,NULL,'Questionários Alinhar','questionarios-alinhar','','','Questionarios','','questionario-alinhar','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL);
+INSERT INTO `Secoes` VALUES ('a73fc500-a39f-5d6c-4973-740f1556',1,0,0,NULL,'Home','home','<p class=\\\"text-center\\\"><img alt=\\\"\\\" src=\\\"/dados/editor/image/Screenshot_20190217223657_379x317.png\\\" style=\\\"width: 379px; height: 317px;\\\" /></p>\r\n','','Secoes','','','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL),('a32d715c-5976-6e55-0164-6d411e83',2,0,0,NULL,'Questionários Alinhar','questionarios-alinhar','','','Questionarios','','questionario-alinhar','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Secoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -463,7 +466,7 @@ CREATE TABLE `SistemaMenu` (
 
 LOCK TABLES `SistemaMenu` WRITE;
 /*!40000 ALTER TABLE `SistemaMenu` DISABLE KEYS */;
-INSERT INTO `SistemaMenu` VALUES (100,0,'1,2','Conteudos','Conteudos','_self',1,0,0,0),(110,0,'1,2','Questionários','Questionarios','_self',1,0,0,0),(120,0,'1,2','Cadastros','Cadastros','_self',1,0,0,0),(200,0,'1,2','Seções','Secoes','_self',1,0,0,0),(900,0,'1','Usuários','SistemaUsuarios','_self',1,0,0,0),(910,0,'1','Configurações','Configuracoes','_self',1,0,0,0),(10000,0,'0','Manutenção','Manutencao','_self',1,0,0,0),(10001,10000,'0','Configurações','SistemaConfiguracoes','_self',1,0,0,0),(10020,10000,'0','Grupos','SistemaGrupos','_self',1,0,0,0);
+INSERT INTO `SistemaMenu` VALUES (100,0,'1,2','Conteudos','Conteudos','_self',0,0,0,0),(110,0,'1,2','Questionários','Questionarios','_self',1,0,0,0),(120,0,'1,2','Cadastros','Cadastros','_self',1,0,0,0),(200,0,'1,2','Seções','Secoes','_self',1,0,0,0),(900,0,'1','Usuários','SistemaUsuarios','_self',1,0,0,0),(910,0,'1','Configurações','Configuracoes','_self',1,0,0,0),(10000,0,'0','Manutenção','Manutencao','_self',1,0,0,0),(10001,10000,'0','Configurações','SistemaConfiguracoes','_self',1,0,0,0),(10020,10000,'0','Grupos','SistemaGrupos','_self',1,0,0,0);
 /*!40000 ALTER TABLE `SistemaMenu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -513,4 +516,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-19  1:57:46
+-- Dump completed on 2019-03-21  0:41:42
