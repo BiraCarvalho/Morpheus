@@ -64,7 +64,7 @@
                                 <a href="#principal" data-toggle="tab">Principal</a>
                             </li>
                             <li>
-                                <a href="#metadados" data-toggle="tab">Perguntas</a>
+                                <a href="#perguntas" data-toggle="tab">Perguntas</a>
                             </li>
                         </ul>
 
@@ -78,10 +78,10 @@
                                 ]);
                             ?>
                             </div>
-                            <div class="tab-pane" id="metadados">
+                            <div class="tab-pane" id="perguntas">
                             <?php
                                 echo includes__load_form([
-                                    "formulario"  => __DIR__ . "/meta",
+                                    "formulario"  => __DIR__ . "/perguntas",
                                     "resultado"   => $dados["resultado"],
                                     "modulo"      => $dados["modulo"],
                                     "registro_id" => $dados["registro_id"],

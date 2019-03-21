@@ -5,6 +5,7 @@ if ( ! defined( '__ROOT_PATH' ) ) {
 }
 
 require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/funcoes.php";
 
 echo includes__load_admin_part( "painel/header",
     [
@@ -47,7 +48,7 @@ switch ($__operacao) {
         $_POST["Slug"] = dbal__set_slug( $tabela, $_POST["Titulo"], $_POST["Slug"], $__registro_id );
         $__registro_id = dbal__write($_POST, $tabela, $__registro_id, ["Secoes","Grupos","Midias"]);
 
-        dbal__update_meta($_POST, $tabela, $__registro_id);
+        questionarios__update_perguntas($_POST, $tabela, $__registro_id);
 
         global__redirect( __ADMIN_BASE_URI . "/".admin__set_url($__modulo, "editar", $__registro_id) );
 
@@ -65,12 +66,12 @@ switch ($__operacao) {
         $__registro_id = dbal__write($clone, $tabela, 0);
         dbal__set_slug( $tabela, $__registro_id, $clone["Titulo"], $clone["Slug"] );
 
-        $metadados = dbal__select_meta($__registro_id, "MetaCampo", $tabela);
+        $perguntas = questionarios__select_perguntas($__registro_id, $tabela);
 
-        if( $metadados ){
-            foreach ( $metadados as $metadado ) {
-                $metadado[$tabela."Id"] = $__registro_id;
-                dbal__write($metadado, $tabela."Meta", 0);
+        if( $perguntas ){
+            foreach ( $perguntas as $pergunta ) {
+                $pergunta[$tabela."Id"] = $__registro_id;
+                dbal__write($pergunta, $tabela."Perguntas", 0);
             }
         }
 
@@ -105,13 +106,19 @@ switch ($__operacao) {
 
     case 'excluir':
 
-        $imagens = explode(",", midias__get_imagens($tabela, $__registro_id, $coluna_id));
-
-        foreach( $imagens as $imagem_id ){
-            midias__delete($imagem_id);
-        }
-
-        $resultado = dbal__delete("Id", $__registro_id, $tabela);
+        //Resposta
+        if( $perguntas = questionarios__select_perguntas($__registro_id, $tabela) ){
+            foreach ($perguntas as $pergunta){
+                dbal__delete($tabela."PerguntasId", $pergunta["Id"], $tabela."Respostas");
+            }
+        }       
+        
+        //Perguntas
+        dbal__delete("QuestionariosId", $__registro_id, $tabela."Perguntas");
+        
+        //Questionarios
+        dbal__delete("Id", $__registro_id, $tabela);
+        
         global__redirect( __ADMIN_BASE_URI . "/".admin__set_url($__modulo) );
 
         break;

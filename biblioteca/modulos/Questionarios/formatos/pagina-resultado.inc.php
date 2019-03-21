@@ -19,7 +19,6 @@
 
 </article>
 
-
 <?php $resultado_alinhar = questionario__resultado_alinhar((int)$conteudo_id); ?>
 
 <!-- Resources -->

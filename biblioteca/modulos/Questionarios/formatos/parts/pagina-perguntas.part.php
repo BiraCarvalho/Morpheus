@@ -1,19 +1,19 @@
-<?php if( $metadados = questionarios__perguntas($conteudo_id) ){ ?>
+<?php if( $perguntas = questionarios__perguntas($conteudo_id) ){ ?>
 
-    <?php foreach( $metadados as $meta_conteudo ){ ?>
+    <?php foreach( $perguntas as $pergunta ){ ?>
 
-    <div id="pergunta_<?=$meta_conteudo['Id'];?>" class="questionarios--pergunta card border-dark mb-3" >
+    <div id="pergunta_<?=$pergunta['Id'];?>" class="questionarios--pergunta card border-dark mb-3" >
         <div class="card-body text-dark">
-            <h5 class="card-title"><?=$meta_conteudo['Ordem'];?>. <?=$meta_conteudo['Titulo'];?></h5>
-            <div class="card-text text-muted"><?=$meta_conteudo['Texto'];?></div>
+            <h5 class="card-title"><?=$pergunta['Ordem'];?>. <?=$pergunta['Titulo'];?></h5>
+            <div class="card-text text-muted"><?=$pergunta['Texto'];?></div>
         </div>
         <div class="card-footer d-flex flex-wrap justify-content-center">
             <?php for( $resposta_id = 1; $resposta_id <= (int)$conteudo['Escala']; $resposta_id++ ){ ?>
-                <?php $resposta_active = (int)$meta_conteudo['RespostasValor'] === (int)$resposta_id ? "active" : ""; ?>
+                <?php $resposta_active = (int)$pergunta['Valor'] === (int)$resposta_id ? "active" : ""; ?>
                 <button id="resposta_<?=$resposta_id;?>" type="button" class="questionarios--resposta flex-fill m-1 btn btn-lg btn-outline-secondary <?=$resposta_active?>" 
                 autocomplete     = "off"
                 data-cadastro-id = "1"
-                data-pergunta-id = "<?=$meta_conteudo['Id'];?>"
+                data-pergunta-id = "<?=$pergunta['Id'];?>"
                 value="<?=$resposta_id;?>"
                 >
                 <?=$resposta_id;?>

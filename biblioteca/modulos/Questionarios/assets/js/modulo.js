@@ -20,18 +20,17 @@ jQuery(function()
         Cookies.remove("form-main-tab-" + __Modulo);
     }
 
-    jQuery(".form-meta--remover").on("click", function(event)
+
+    jQuery(".form-perguntas--adicionar").on("click", function(event)
         {
-            metaRemover(event, this, "/ajax?mod=" + __Modulo);
+            perguntaAdicionar(event, this, "/ajax?mod=" + __Modulo);
         }
     );
-
-    jQuery(".form-meta--adicionar").on("click", function(event)
+    jQuery(".form-perguntas--remover").on("click", function(event)
         {
-            metaAdicionar(event, this, "/ajax?mod=" + __Modulo);
+            perguntaRemover(event, this, "/ajax?mod=" + __Modulo);
         }
     );
-
 
     jQuery(".questionarios--resposta").on("click", function(event)
         {
@@ -43,8 +42,8 @@ jQuery(function()
 
 // ---------- Funções (Métodos) ----//
 
-// ---------- Metadados ------------//
-var metaAdicionar = function(event, element, url)
+// ---------- Perguntadados ------------//
+var perguntaAdicionar = function(event, element, url)
 {
     event.preventDefault();
 
@@ -58,55 +57,54 @@ var metaAdicionar = function(event, element, url)
 
     jQuery.post(url,
     {
-        "op"  :"metadados-adicionar",
-        "uid" : uid,
-        "tag" :"MetaCampo"
+        "op"  :"perguntas-adicionar",
+        "uid" : uid
     },
     function(data)
     {
-        console.log("Add Meta# " + data.meta_id);
+        console.log("Add Perguntas# " + data.pergunta_id);
 
-        var meta = jQuery(data.include);
+        var perguntas = jQuery(data.include);
         jQuery("." + wrap_class).append(function(){
-            return meta.hide();
+            return perguntas.hide();
         });
         ckeditor_small();
-        meta.slideDown();
+        perguntas.slideDown();
 
-        var btn_remover = "#MetaCampo_" + data.meta_id + " .form-meta--remover";
+        var btn_remover = "#PerguntaCampo_" + data.pergunta_id + " .form-perguntas--remover";
         jQuery(btn_remover).on( "click", function(event){
-            metaRemover(event, this, url);
+            perguntaRemover(event, this, url);
         });
 
     },
     "json")
 }
 
-var metaRemover = function(event, element, url)
+var perguntaRemover = function(event, element, url)
 {
     event.preventDefault();
 
-    var meta_id = jQuery(element).data("meta-id");
+    var pergunta_id = jQuery(element).data("perguntas-id");
 
-    if(!meta_id){
-        console.log("Falta id do metadado!");
+    if(!pergunta_id){
+        console.log("Falta id do perguntadado!");
         return false;
     }
 
     jQuery.post(url,
     {
-        "op"      :"metadados-remover",
-        "meta_id" : meta_id
+        "op"      :"perguntas-remover",
+        "pergunta_id" : pergunta_id
     })
     .done(function(data)
     {
-        var meta = jQuery("#MetaCampo_" + meta_id);
-        meta.slideUp(800);
+        var perguntas = jQuery("#PerguntaCampo_" + pergunta_id);
+        perguntas.slideUp(800);
         setTimeout( function(){
-            meta.remove();
+            perguntas.remove();
         }, 1000 );
 
-        console.log("Remove Meta# "+meta_id);
+        console.log("Remove Perguntas# "+pergunta_id);
     },
     "json")
 }

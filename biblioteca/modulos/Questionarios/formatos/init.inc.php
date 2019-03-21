@@ -1,6 +1,7 @@
 <?php
-require_once "config.php";
-require_once "funcoes.php";
+
+require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/funcoes.php";
 
 $pagina_exibir = filter_input(INPUT_GET, 'exibir');
 

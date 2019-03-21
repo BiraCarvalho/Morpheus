@@ -106,15 +106,15 @@ function questionarios__perguntas(int $questionario_id)
 {
     $consulta = "SELECT 
                     Perguntas.Id,
-                    Perguntas.Tag,
                     Perguntas.Titulo,
                     Perguntas.Texto,
                     Perguntas.Ordem,
-                    Respostas.Valor AS RespostasValor
-                    FROM QuestionariosMeta AS Perguntas
-                    LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosMetaId
+                    Perguntas.Agrupamento,
+                    Respostas.Valor
+                    FROM QuestionariosPerguntas AS Perguntas
+                    LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosPerguntasId
                     WHERE Perguntas.QuestionariosId = '{$questionario_id}'
-                    ORDER BY Perguntas.Ordem, Perguntas.Id";
+                    ORDER BY Perguntas.Agrupamento, Perguntas.Ordem, Perguntas.Id";
 
     return global__db()->fetchAll($consulta);
 }
@@ -126,9 +126,9 @@ function questionario__resultado_alinhar(int $questionario_id){
                     SUM(Respostas.Valor) AS Soma, 
                     COUNT(Perguntas.Id) AS NumeroDePerguntas, 
                     SUM(Respostas.Valor)/COUNT(Perguntas.Id) AS Media
-                    FROM QuestionariosMeta AS Perguntas 
-                    LEFT JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosMetaId
-                    where Perguntas.QuestionariosId = '{$questionario_id}'
+                    FROM QuestionariosPerguntas AS Perguntas 
+                    JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosPerguntasId
+                    WHERE Perguntas.QuestionariosId = '{$questionario_id}'
                     GROUP BY Perguntas.Agrupamento
                     ORDER BY Perguntas.Agrupamento";
 

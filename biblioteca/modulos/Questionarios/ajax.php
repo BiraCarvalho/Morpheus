@@ -5,60 +5,59 @@ if ( ! defined( '__ROOT_PATH' ) ) {
 }
 
 require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/funcoes.php";
 
 //Do ajax request
-$meta_id     = filter_input(INPUT_POST, "meta_id");
+$pergunta_id = filter_input(INPUT_POST, "pergunta_id");
 $registro_id = filter_input(INPUT_POST, "uid", FILTER_SANITIZE_NUMBER_INT);
 
 switch ($__operacao) {
 
-    case 'metadados-remover':
+    case "perguntas-adicionar":
 
-        $count   =  dbal__delete("Id", $meta_id, $tabela."Meta");
-        $retorno = ["count" => $count ];
+        $perguntas[$tabela."Id"]  = $registro_id;
+        $perguntas["Ordem"]       = "1";
+        $perguntas["Agrupamento"] = "1";
+        $perguntas["Titulo"]      = "";
+        $perguntas["Texto"]       = "";
 
-        break;
-
-    case "metadados-adicionar":
-
-        $metadados[$tabela."Id"] = $registro_id;
-        $metadados["Tag"]        = filter_input(INPUT_POST, "tag");
-        $metadados["Ordem"]      = "0";
-        $metadados["Valor"]      = "0";
-        $metadados["Titulo"]     = "";
-        $metadados["Texto"]      = "";
-
-        $meta_id = dbal__write($metadados, $tabela."Meta", 0);
+        $pergunta_id = dbal__write($perguntas, $tabela."Perguntas", 0);
 
         $include = includes__load_form([
-            "formulario"	=> __DIR__ . "/forms/meta-template",
-            "registro"	 	=> $metadados,
-            "meta_id"	 	=> $meta_id,
-            "meta_tag"		=> "MetaCampo",
+            "formulario"	=> __DIR__ . "/forms/pergunta-template",
+            "registro"	 	=> $perguntas,
+            "pergunta_id"	=> $pergunta_id,
             "fk_id" 	 	=> $registro_id,
             "modulo"        => $__modulo,
             "tabela"        => $tabela,
         ]);
 
         $retorno = [
-            "meta_id" => $meta_id,
+            "pergunta_id" => $pergunta_id,
             "include" => $include
         ];
 
         break;
 
+    case 'perguntas-remover':
+
+        $count   =  dbal__delete("Id", $pergunta_id, $tabela."Perguntas");
+        $retorno = ["count" => $count ];
+
+        break;
+
     case "resposta-check":
 
-        $resposta["CadastrosId"]         = filter_input(INPUT_POST, "cadastro_id",    FILTER_SANITIZE_NUMBER_INT);
-        $resposta["QuestionariosMetaId"] = filter_input(INPUT_POST, "pergunta_id",    FILTER_SANITIZE_NUMBER_INT);
-        $resposta["Valor"]               = filter_input(INPUT_POST, "resposta_value", FILTER_SANITIZE_NUMBER_INT);
+        $resposta["CadastrosId"]              = filter_input(INPUT_POST, "cadastro_id",    FILTER_SANITIZE_NUMBER_INT);
+        $resposta["QuestionariosPerguntasId"] = filter_input(INPUT_POST, "pergunta_id",    FILTER_SANITIZE_NUMBER_INT);
+        $resposta["Valor"]                    = filter_input(INPUT_POST, "resposta_value", FILTER_SANITIZE_NUMBER_INT);
   
         $consulta = "SELECT Id 
                        FROM {$tabela}Respostas 
                       WHERE CadastrosId = ?
-                        AND QuestionariosMetaId = ?";
+                        AND QuestionariosPerguntasId = ?";
 
-        $resposta_id = global__db()->fetchColumn($consulta, [$resposta["CadastrosId"], $resposta["QuestionariosMetaId"]]);               
+        $resposta_id = global__db()->fetchColumn($consulta, [$resposta["CadastrosId"], $resposta["QuestionariosPerguntasId"]]);               
         
         $resposta_id = dbal__write($resposta, $tabela."Respostas", $resposta_id);
         
