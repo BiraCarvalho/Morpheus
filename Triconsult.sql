@@ -37,7 +37,7 @@ CREATE TABLE `Cadastros` (
   `Criacao` datetime NOT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `Cadastros` (
 
 LOCK TABLES `Cadastros` WRITE;
 /*!40000 ALTER TABLE `Cadastros` DISABLE KEYS */;
-INSERT INTO `Cadastros` VALUES ('c0467c25-43a3-231b-57a2-54aa545d0e19',1,'Ubiratã Carvalho Nogueira','bira@biracarvalho.com.br','(62) 98331-3227','Credibly syndicate strategic imperatives and low-risk high-yield alignments. Authoritatively cultivate cross functional niches before sticky materials. Proactively enable pandemic content for enterprise-wide action items. Phosfluorescently.','$2y$10$/U5LfrQ8ZcdoHXW4Q0zo3Ox0pBeJQOU.XBCduaZythisVrCGcdecK',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','0000-00-00 00:00:00'),('093c8470-dfc3-6db8-547f-405e3e76145d',2,'Ubirajara Carvalho Nogueira','jaracarvalho@hotmail.com','(19) 99652-2222','','$2y$10$ZGg/nLE4chRmDOwppOvm7ebgd8/PyR6uZw9UE0h1xeHlhOPw8JIkq',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','0000-00-00 00:00:00');
+INSERT INTO `Cadastros` VALUES ('c0467c25-43a3-231b-57a2-54aa545d0e19',1,'Ubiratã Carvalho Nogueira','bira@biracarvalho.com.br','(62) 98331-3227','Credibly syndicate strategic imperatives and low-risk high-yield alignments. Authoritatively cultivate cross functional niches before sticky materials. Proactively enable pandemic content for enterprise-wide action items. Phosfluorescently.','$2y$10$/U5LfrQ8ZcdoHXW4Q0zo3Ox0pBeJQOU.XBCduaZythisVrCGcdecK',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','0000-00-00 00:00:00'),('093c8470-dfc3-6db8-547f-405e3e76145d',2,'Ubirajara Carvalho Nogueira','jaracarvalho@hotmail.com','(19) 99652-2222','','$2y$10$9vly9agHNjS/tou789XhvevLxO8gzUrUZpKmTrneJQfOn5sk9docW',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','0000-00-00 00:00:00'),('26e81311-8ec6-1603-6802-1cd8e32d25af',3,'Lia Isumi','lia@labe.cx','(11) 98625-4666','','$2y$10$zjUzzx7FfmeVn0qBdEEn4ecvs43f743lLwjnLWsLov3tTplW660iK',1,0,'127.0.0.1','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0','2019-03-21 22:55:27');
 /*!40000 ALTER TABLE `Cadastros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +287,7 @@ CREATE TABLE `Questionarios` (
   PRIMARY KEY (`Id`),
   KEY `secId` (`Secoes`(767)),
   KEY `pubSeo` (`Slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,9 +316,8 @@ CREATE TABLE `QuestionariosPerguntas` (
   `Ordem` int(11) DEFAULT '0',
   `Agrupamento` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Id`),
-  KEY `ConteudosId` (`QuestionariosId`),
-  CONSTRAINT `QuestionariosPerguntas_ibfk_1` FOREIGN KEY (`QuestionariosId`) REFERENCES `Questionarios` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+  KEY `ConteudosId` (`QuestionariosId`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,7 +326,7 @@ CREATE TABLE `QuestionariosPerguntas` (
 
 LOCK TABLES `QuestionariosPerguntas` WRITE;
 /*!40000 ALTER TABLE `QuestionariosPerguntas` DISABLE KEYS */;
-INSERT INTO `QuestionariosPerguntas` VALUES ('',1,1,'Energistically evolve user friendly products vis-a-vis top-line value.','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',1,'1'),('',2,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',2,'1'),('',4,1,'Professionally foster user friendly systems through cross functional markets 6546546','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',3,'2'),('',5,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',4,'2'),('',6,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',5,'2'),('',7,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',6,'3'),('',8,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',7,'3'),('',9,1,'Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',8,'4'),('',10,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',9,'4'),('',11,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',10,'5'),('',14,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',11,'5'),('',15,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',12,'5'),('',16,1,'Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',13,'5'),('',17,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',14,'6'),('',18,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',15,'6'),('',19,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','<p>Progressively recaptiualize integrated solutions rather than 24/7 experiences. Dynamically administrate distributed models via innovative niche markets. Energistically seize team driven e-markets whereas state of the art action items. Proactively fashion intermandated experiences rather than maintainable.</p>\r\n',16,'6'),('',20,1,'Collaboratively administrate state of the art partnerships.','<p>Competently formulate multimedia based e-services rather than transparent benefits. Distinctively supply state of the art meta-services via 2.0 services. Conveniently incentivize integrated expertise and synergistic human capital. Collaboratively develop scalable e-services through customer directed infomediaries.</p>\r\n',17,'6'),('',21,1,'Professionally foster user friendly systems through cross functional markets','<p>Professionally repurpose client-based experiences vis-a-vis optimal interfaces. Intrinsicly reinvent customer directed benefits rather than customized products. </p>\r\n',18,'7'),('',22,1,'Competently grow superior infomediaries after transparent total linkage','<p>Collaboratively actualize tactical services after vertical products. Appropriately unleash customer directed portals and revolutionary products. Distinctively redefine technically sound infrastructures before customer directed leadership. Intrinsicly deliver interactive.</p>\r\n',19,'7'),('',23,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','<p>Holisticly implement high-quality data through market positioning technology. Intrinsicly integrate frictionless scenarios without bleeding-edge supply chains.</p>\r\n',20,'7'),('b243ee18-8abf-2bdb-170e-93e548e7ee7c',29,1,'','',1,'1');
+INSERT INTO `QuestionariosPerguntas` VALUES ('',1,1,'Energistically evolve user friendly products vis-a-vis top-line value.','',1,'1'),('',2,1,'Collaboratively administrate state of the art partnerships.','',2,'1'),('',4,1,'Professionally foster user friendly systems through cross functional markets 6546546','',3,'2'),('',5,1,'Competently grow superior infomediaries after transparent total linkage','',4,'2'),('',6,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','',5,'3'),('',7,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','',6,'3'),('',8,1,'Collaboratively administrate state of the art partnerships.','',7,'4'),('',9,1,'Professionally foster user friendly systems through cross functional markets','',8,'4'),('',10,1,'Competently grow superior infomediaries after transparent total linkage','',9,'5'),('',11,1,'Holisticly brand web-enabled infrastructures for mission-critical networks','',10,'5'),('',14,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','',11,'6'),('',31,1,'Progressively recaptiualize integrated solutions rather than 24/7 experiences','',12,'6'),('',32,1,'Energistically evolve user friendly products vis-a-vis top-line value. ','',11,'7'),('',33,1,'Progressively recaptiualize integrated solutions rather than 24/7 experiences','',12,'7');
 /*!40000 ALTER TABLE `QuestionariosPerguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,9 +344,8 @@ CREATE TABLE `QuestionariosRespostas` (
   `QuestionariosPerguntasId` bigint(20) NOT NULL,
   `Valor` bigint(20) NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `QuestionariosPerguntasId` (`QuestionariosPerguntasId`),
-  CONSTRAINT `QuestionariosRespostas_ibfk_1` FOREIGN KEY (`QuestionariosPerguntasId`) REFERENCES `QuestionariosPerguntas` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+  KEY `QuestionariosPerguntasId` (`QuestionariosPerguntasId`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,7 +354,7 @@ CREATE TABLE `QuestionariosRespostas` (
 
 LOCK TABLES `QuestionariosRespostas` WRITE;
 /*!40000 ALTER TABLE `QuestionariosRespostas` DISABLE KEYS */;
-INSERT INTO `QuestionariosRespostas` VALUES ('',12,1,1,4),('',13,1,2,6),('',14,1,4,4),('',15,1,5,5),('',17,1,6,7),('',18,1,7,5),('',19,1,8,7),('',20,1,9,5),('',21,1,10,4),('',22,1,11,5),('',23,1,14,5),('',24,1,15,3),('',25,1,16,8),('',26,1,17,7),('',27,1,18,5),('',28,1,19,6),('',29,1,20,5),('',30,1,22,6),('',31,1,23,5),('',32,1,21,5);
+INSERT INTO `QuestionariosRespostas` VALUES ('',12,1,1,4),('',13,1,2,6),('',14,1,4,4),('',15,1,5,5),('',17,1,6,7),('',18,1,7,5),('',19,1,8,7),('',20,1,9,5),('',21,1,10,4),('',22,1,11,5),('',23,1,14,5),('',24,1,15,3),('',25,1,16,8),('',26,1,17,7),('',27,1,18,5),('',28,1,19,6),('',29,1,20,5),('',30,1,22,6),('',31,1,23,5),('',32,1,21,5),('0177415d-1758-be35-e8cc-e0be046a3a39',33,2,1,4),('b7b03250-890d-99ad-8b0d-0d8844fb2d43',34,2,29,5),('e3c3b4f0-9ed5-4292-6c55-ec131c59d82d',35,2,2,5),('6dcb4894-05c5-a818-8685-d95808dcbea1',36,2,4,4),('677c73db-7c6a-d11f-cee1-b45590c25f75',37,2,5,5),('d78984a8-bd17-4c1c-ced7-c6b72ea4272e',38,2,6,5),('a56e730b-0f04-b6fb-84ee-cfc25900f2b5',39,2,7,6),('17f3c3f1-3ef5-d415-51ac-0e025dcb892e',40,2,8,3),('0f4cd818-3877-1dfd-6740-bcab13d54064',41,2,9,4),('bd71be67-ddf2-9a3b-e266-db379a96f7c6',42,2,10,1),('18e4544c-3f14-6c65-dec3-495475576276',43,2,11,5),('3bbe6282-8fa4-3ff5-0959-ea4797854b94',44,2,14,4),('852f7b6d-1788-b83e-77f2-84728b9c0913',45,2,15,4),('e7ece3c3-8252-cb13-03e0-a9f476a9a062',46,2,16,5),('8db8ae8b-5beb-21c5-7561-96033515b5f8',47,2,18,4),('d888723d-2973-86ba-e121-dc8c4baada45',48,2,17,8),('72306746-2389-0c89-ca2c-1438d1f1b427',49,2,19,5),('8bf6803a-607f-481e-5882-70788cdb9a94',50,2,20,5),('e85fdc68-3a06-7ae9-16c0-2d138bd352d6',51,2,21,6),('e7cc805f-5b7c-826c-2a05-e863e9b6f0df',52,2,22,6),('cf576eb9-980c-2dbb-3b2d-eb702a936c3a',53,2,23,3),('b4437e89-ec45-b754-f4c6-1ea872f27c28',54,1,31,4),('8f7e8d23-429c-f5cb-4cb4-0b95e1270428',55,1,32,6),('6c26b85f-acb5-36a1-3f9b-a866515892fb',56,1,33,4);
 /*!40000 ALTER TABLE `QuestionariosRespostas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -397,7 +395,7 @@ CREATE TABLE `Secoes` (
   KEY `SecaoPaiId` (`PaiId`),
   KEY `SecaoFilhoId` (`FilhoId`),
   FULLTEXT KEY `Grupos` (`Grupos`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -406,7 +404,7 @@ CREATE TABLE `Secoes` (
 
 LOCK TABLES `Secoes` WRITE;
 /*!40000 ALTER TABLE `Secoes` DISABLE KEYS */;
-INSERT INTO `Secoes` VALUES ('a73fc500-a39f-5d6c-4973-740f1556',1,0,0,NULL,'Home','home','<p class=\\\"text-center\\\"><img alt=\\\"\\\" src=\\\"/dados/editor/image/Screenshot_20190217223657_379x317.png\\\" style=\\\"width: 379px; height: 317px;\\\" /></p>\r\n','','Secoes','','','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL),('a32d715c-5976-6e55-0164-6d411e83',2,0,0,NULL,'Questionários Alinhar','questionarios-alinhar','','','Questionarios','','questionario-alinhar','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL);
+INSERT INTO `Secoes` VALUES ('a73fc500-a39f-5d6c-4973-740f1556',1,0,0,NULL,'Home','home','<p class=\\\"text-center\\\"><img alt=\\\"\\\" class=\\\"img-fluid\\\" src=\\\"/dados/editor/image/Screenshot_20190217223657_379x317.png\\\" /></p>\r\n\r\n<p class=\\\"text-center\\\"><a class=\\\"btn btn-lg btn-success p-2 mt-5\\\" href=\\\"/questionarios-alinhar/modelo\\\">Question&aacute;rio</a></p>\r\n','','Secoes','','','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL),('a32d715c-5976-6e55-0164-6d411e83',2,0,0,NULL,'Questionários Alinhar','questionarios-alinhar','','','Questionarios','','questionario-alinhar','pagina.php',NULL,'_self',0,0,1,1,0,NULL,NULL,NULL,NULL),('a73a9ff9-70a8-7727-d808-8560d5f2',3,0,0,NULL,'Login','login','','','Cadastros','','cadastros-login','pagina.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL),('09bd80e5-4ef7-d251-af55-f49658cc',4,0,0,NULL,'Autenticacao','autenticacao','','','Cadastros','','cadastros-autenticacao','blank.php',NULL,'_self',0,0,0,1,0,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Secoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -516,4 +514,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-21  0:41:42
+-- Dump completed on 2019-03-21 23:06:43
