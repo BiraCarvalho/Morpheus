@@ -292,7 +292,7 @@ function secoes__menu_descendentes_diretos($secao_id, $class = [], $exibir_image
     foreach ($secoes as $secao) {
         $href = $secao["Id"] == 1 ? $secao["URL"] : "/".$secao['Slug'];
         $retorno .= "<li {$class_li}>";
-        $retorno .= "<a  {$class_a} href=\"{$href}\">{$imagem_tag}{$secao['Titulo']}</a>";
+        $retorno .= "<a  {$class_a} href=\"{$href}\">{$secao['Titulo']}</a>";
         $retorno .= "</li>";
     }
     $retorno .= "</ul>";
@@ -303,7 +303,7 @@ function secoes__menu_descendentes_diretos($secao_id, $class = [], $exibir_image
 
 function secoes__todos_os_descendentes($secao_id)
 {
-    $tabela = $db_prefixo."Secoes";
+    $tabela = "Secoes";
 
     $consulta = "SELECT secoes.Id, secoes.Slug, secoes.smoId, secoes.PaiId
 								 FROM {$tabela} AS secoes
@@ -311,7 +311,7 @@ function secoes__todos_os_descendentes($secao_id)
 									AND PaiId = '{$secao_id}'
 								ORDER BY Ordem, Id;";
 
-    $secoes   = $db->GetArray($consulta);
+    $secoes   = global__db()->GetArray($consulta);
 
     if (!$secoes) {
         return false;
