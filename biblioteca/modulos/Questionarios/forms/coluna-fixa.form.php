@@ -53,17 +53,17 @@ echo includes__load_componente("forms", [
     "value"   		=> $dados["resultado"]["Escala"]
 ]);
 
-echo includes__load_componente("forms", [
-    "type"			=> "input-text",
-    "label"   		=> "Data",
-    "id"      		=> "Data",
-    "name"    		=> "Data",
-    "form-group"	=> true,
-    "class"   		=> "data datepicker",
-    "col-grid" 		=> "col-md-12",
-    "attrs"   		=> "",
-    "value"   		=> $dados["resultado"]["Data"]
-]);
+// echo includes__load_componente("forms", [
+//     "type"			=> "input-text",
+//     "label"   		=> "Data",
+//     "id"      		=> "Data",
+//     "name"    		=> "Data",
+//     "form-group"	=> true,
+//     "class"   		=> "data datepicker",
+//     "col-grid" 		=> "col-md-12",
+//     "attrs"   		=> "",
+//     "value"   		=> $dados["resultado"]["Data"]
+// ]);
 
 echo includes__load_componente("forms", [
     "type"	  		=> "input-text",
@@ -94,22 +94,22 @@ echo includes__load_componente("forms", [
     ]
 ]);
 
-echo includes__load_componente("forms", [
-    "type"     		=> "select",
-    "label"    		=> "Destaque",
-    "id"       		=> "Destaque",
-    "name"     		=> "Destaque",
-    "form-group"	=> true,
-    "class"    		=> "",
-    "col-grid" 		=> "col-md-12",
-    "multiple" 		=> false,
-    "attrs"    		=> "",
-    "value"    		=> [$dados["resultado"]["Destaque"]],
-    "options"  		=> [
-            0 => "Não",
-            1 => "Sim"
-    ]
-]);
+// echo includes__load_componente("forms", [
+//     "type"     		=> "select",
+//     "label"    		=> "Destaque",
+//     "id"       		=> "Destaque",
+//     "name"     		=> "Destaque",
+//     "form-group"	=> true,
+//     "class"    		=> "",
+//     "col-grid" 		=> "col-md-12",
+//     "multiple" 		=> false,
+//     "attrs"    		=> "",
+//     "value"    		=> [$dados["resultado"]["Destaque"]],
+//     "options"  		=> [
+//             0 => "Não",
+//             1 => "Sim"
+//     ]
+// ]);
 
 echo includes__load_componente("forms", [
     "type"     		=> "select",

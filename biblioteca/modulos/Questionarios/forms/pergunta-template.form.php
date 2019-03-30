@@ -21,9 +21,11 @@
         <label class="control-label" for="Pergunta_Titulo_<?=$dados["pergunta_id"]?>">Pergunta</label>
         <textarea class="form-control" rows="2" id="Pergunta_Titulo_<?=$dados["pergunta_id"]?>" name="Pergunta_Titulo[]" ><?=$dados["registro"]["Titulo"]?></textarea>
     </div>
+    <?php /*
     <div class="form-group">
         <label class="control-label" for="Pergunta_Texto_<?=$dados["pergunta_id"]?>">Complemento</label>
         <textarea class="form-control ck-small" rows="5" id="Pergunta_Texto_<?=$dados["pergunta_id"]?>" name="Pergunta_Texto[]"><?=$dados["registro"]["Texto"]?></textarea>
     </div>
+    */?>
     <hr>
 </div>

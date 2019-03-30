@@ -61,24 +61,15 @@
                         <hr  />
                         <ul class="nav nav-tabs" data-operacao="<?=$dados["operacao"]?>" >
                             <li class="active">
-                                <a href="#principal" data-toggle="tab">Principal</a>
+								<a href="#perguntas" data-toggle="tab">Perguntas</a>
                             </li>
                             <li>
-                                <a href="#perguntas" data-toggle="tab">Perguntas</a>
+								<a href="#principal" data-toggle="tab">Texto de Introdução</a>
                             </li>
                         </ul>
 
                         <div class="tab-content">
-                            <div class="tab-pane active" id="principal">
-                            <?php
-                                echo includes__load_form([
-                                    "formulario" => __DIR__ . "/principal",
-                                    "resultado"  => $dados["resultado"],
-                                    "modulo"     => $dados["modulo"],
-                                ]);
-                            ?>
-                            </div>
-                            <div class="tab-pane" id="perguntas">
+                            <div class="tab-pane active" id="perguntas">
                             <?php
                                 echo includes__load_form([
                                     "formulario"  => __DIR__ . "/perguntas",
@@ -88,9 +79,18 @@
                                     "tabela"      => $dados["tabela"]
                                 ]);
                             ?>
+							</div>
+                            <div class="tab-pane" id="principal">
+                            <?php
+                                echo includes__load_form([
+                                    "formulario" => __DIR__ . "/principal",
+                                    "resultado"  => $dados["resultado"],
+                                    "modulo"     => $dados["modulo"],
+                                ]);
+                            ?>
                             </div>
+						</div>
 
-					</div>
 				</div><!-- row -->
 			</div><!-- container -->
 		</div><!-- panel-body -->
