@@ -4,8 +4,8 @@
 
     <div id="pergunta_<?=$pergunta['Id'];?>" class="questionarios--pergunta card border-dark mb-3" >
         <div class="card-body text-dark">
-            <h5 class="card-title"><?=$pergunta['Ordem'];?>. <?=$pergunta['Titulo'];?></h5>
-            <div class="card-text text-muted"><?=$pergunta['Texto'];?></div>
+            <h5 class="card-title"><?=$pergunta['Ordem'];?>. <?=stripslashes($pergunta['Titulo']);?></h5>
+            <div class="card-text text-muted"><?=stripslashes($pergunta['Texto']);?></div>
         </div>
         <div class="card-footer d-flex flex-wrap justify-content-center">
             <?php for( $resposta_id = 1; $resposta_id <= (int)$conteudo['Escala']; $resposta_id++ ){ ?>

@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <label class="control-label" for="Pergunta_Titulo_<?=$dados["pergunta_id"]?>">Pergunta</label>
-        <textarea class="form-control" rows="2" id="Pergunta_Titulo_<?=$dados["pergunta_id"]?>" name="Pergunta_Titulo[]" ><?=$dados["registro"]["Titulo"]?></textarea>
+        <textarea class="form-control" rows="2" id="Pergunta_Titulo_<?=$dados["pergunta_id"]?>" name="Pergunta_Titulo[]" ><?=stripslashes($dados["registro"]["Titulo"])?></textarea>
     </div>
     <?php /*
     <div class="form-group">

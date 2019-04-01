@@ -1,25 +1,47 @@
 <article>
 
-	<?php if( $conteudo['Titulo'] ){ ?>
-	<header class="mb-4">
-		<h2><?=$conteudo['Titulo']?></h2>
+    <header class="d-none">
+		<h2 id="article--questionario-titulo"><?=$conteudo['Titulo']?></h2>
 	</header>
-	<?php }?>
 
 	<h3 class="mb-4">Resultado</h3>
 
 	<div class="card p-2">
 		<!-- Gráfico -->
 		<div id="chartdiv"></div>
-	</div>
+    </div>
+    
+    <form id="form-main-questionario-conclusao" action="/<?=$secao_slug?>/<?=$slug?>?exibir=resultado" method="POST" enctype="multipart/form-data" class="admin--form-main form-main-questionario pt-4 pb-2" >
+        
+        <input id="op" name="op" type="hidden" value="gravar" >
+        <input id="CadastrosId" name="CadastrosId" type="hidden" value="<?=$cadastro["Id"]?>" >
+    
+        <div class="form-group">
+            <label for="Texto1">O que isso significa para você?</label>
+            <textarea name="Texto1" class="form-control" rows="9" ><?=stripslashes($conclusoes["Texto1"])?></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Texto2">O que eu você se dá conta, o que você precisa trabalhar?</label>
+            <textarea name="Texto2" class="form-control" rows="9"><?=stripslashes($conclusoes["Texto2"])?></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Texto3">Qual é a sua responsabilidade para o desenvolvimento do ALINHAR na sua Organização?</label>
+            <textarea name="Texto3" class="form-control" rows="9"><?=stripslashes($conclusoes["Texto3"])?></textarea>
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
+        </div>
+
+    </form>
 
 	<footer class="pagina-rodape">
 		<div class="clearfix"></div>
 	</footer>
 
 </article>
-
-<?php $resultado_alinhar = questionario__resultado_alinhar((int)$conteudo_id); ?>
 
 <!-- Resources -->
 <script src="https://www.amcharts.com/lib/4/core.js"></script>

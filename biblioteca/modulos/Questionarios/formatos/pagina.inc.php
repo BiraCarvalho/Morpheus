@@ -1,10 +1,8 @@
 <article>
-
-	<?php if( $conteudo['Titulo'] ){ ?>
-	<header>
-		<h2><?=$conteudo['Titulo']?></h2>
+	
+	<header class="d-none">
+		<h2 id="article--questionario-titulo"><?=$conteudo['Titulo']?></h2>
 	</header>
-	<?php }?>
 
 	<?=$conteudo['Texto'] ? $conteudo['Texto'] : ''; ?>
 
@@ -15,7 +13,7 @@
     <hr />
 
 	<footer class="pagina-rodape text-center">
-		<a class="btn btn-lg btn-danger" href="/questionarios-alinhar/modelo?exibir=resultado">Resultado</a>
+		<a class="btn btn-lg btn-danger" href="/<?=$secao_slug?>/<?=$slug?>?exibir=resultado">Resultado</a>
 		<div class="clearfix"></div>
 	</footer>
 
