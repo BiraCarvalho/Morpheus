@@ -25,6 +25,13 @@ echo includes__load_componente("forms", [
 ]);
 
 echo includes__load_componente("forms", [
+    "type"	  		=> "input-hidden",
+    "id"      		=> "Secoes",
+    "name"    		=> "Secoes",
+    "value"   		=> "2"
+]);
+
+echo includes__load_componente("forms", [
     "type"			=> "select",
     "label"			=> "Situação",
     "id"			=> "Situacao",
@@ -53,17 +60,17 @@ echo includes__load_componente("forms", [
     "value"   		=> $dados["resultado"]["Escala"]
 ]);
 
-// echo includes__load_componente("forms", [
-//     "type"			=> "input-text",
-//     "label"   		=> "Data",
-//     "id"      		=> "Data",
-//     "name"    		=> "Data",
-//     "form-group"	=> true,
-//     "class"   		=> "data datepicker",
-//     "col-grid" 		=> "col-md-12",
-//     "attrs"   		=> "",
-//     "value"   		=> $dados["resultado"]["Data"]
-// ]);
+echo includes__load_componente("forms", [
+    "type"			=> "input-text",
+    "label"   		=> "Data",
+    "id"      		=> "Data",
+    "name"    		=> "Data",
+    "form-group"	=> true,
+    "class"   		=> "data datepicker",
+    "col-grid" 		=> "col-md-12",
+    "attrs"   		=> "",
+    "value"   		=> $dados["resultado"]["Data"]
+]);
 
 echo includes__load_componente("forms", [
     "type"	  		=> "input-text",

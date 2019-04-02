@@ -14,7 +14,9 @@
     <form id="form-main-questionario-conclusao" action="/<?=$secao_slug?>/<?=$slug?>?exibir=resultado" method="POST" enctype="multipart/form-data" class="admin--form-main form-main-questionario pt-4 pb-2" >
         
         <input id="op" name="op" type="hidden" value="gravar" >
+        
         <input id="CadastrosId" name="CadastrosId" type="hidden" value="<?=$cadastro["Id"]?>" >
+        <input id="QuestionariosId" name="QuestionariosId" type="hidden" value="<?=$conteudo["Id"]?>" >
     
         <div class="form-group">
             <label for="Texto1">O que isso significa para você?</label>
