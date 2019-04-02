@@ -1,8 +1,13 @@
 #chartdiv {
     width: 100%;
-    height: 500px;
+    height: 300px;
 }
 
 .questionarios--pergunta .card-footer button{
     width: 2.5em !important;
+}
+
+.questionario--home-link{
+    width: 100%;
+    max-width: 500px;
 }

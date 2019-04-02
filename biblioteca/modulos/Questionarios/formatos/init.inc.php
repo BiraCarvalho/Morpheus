@@ -13,7 +13,8 @@ $cadastro       = cadastros__get_usuario( $cadastro__hash );
 if( $secao_formato == "questionario-alinhar"  ){
     $conteudo    = questionarios__dados_para_pagina( $secao_id, $grupo_id, $slug );
     $conteudo    = formatacao__mysql_html("Questionarios", $conteudo);
-    $conclusoes  = dbal__select_assoc("QuestionariosConclusoes", "CadastrosId", $cadastro["Id"]);
+    // $conclusoes  = dbal__select_assoc("QuestionariosConclusoes", "CadastrosId", $cadastro["Id"]);
+    $conclusoes  = questionario__get_conclusoes($cadastro["Id"], $conteudo["Id"]);
     $conteudo_id = $conteudo["Id"];
 }
 
