@@ -1,8 +1,6 @@
 <?php require_once __DIR__ . "/parts/header.part.php"; ?>
+<?php require_once __DIR__ . "/parts/menu.part.php"; ?>
 
-<header>
-    <?php require_once __DIR__ . "/parts/menu.part.php"; ?>
-</header>
 
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0 pt-3">

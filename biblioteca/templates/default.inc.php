@@ -1,7 +1,7 @@
 <?php
-if( autenticacao__get_logon() && $secao_slug != "autenticacao" ){
-    include_once("parts/logado-barra.part.php");
-}
+// if( autenticacao__get_logon() && $secao_slug != "autenticacao" ){
+//     include_once("parts/logado-barra.part.php");
+// }
 ?>
 
 <div class="modulo-wrap modulo-<?=$secao_modulo?> secao-<?=$secao_slug?> secao-raiz-<?=$secao_raiz_slug?>" >
