@@ -7,9 +7,28 @@
 
         <?php if( autenticacao__get_logon() && $secao_slug != "autenticacao" ){ ?>
         <div class="ml-auto">
-            <span class="saudacao d-inline-block">Bem vindo, <?=$autenticacao__usuario["Nome"]?>!</span>
-            <a class="btn btn-sm btn-light text-danger d-inline-block" href="/autenticacao/logout">Sair</a>
+        
+        <div class="input-group input-group-sm">
+            
+            <div class="input-group-prepend">
+                <span class="input-sm input-group-text ">Bem vindo, <?=$autenticacao__usuario["Nome"]?>!</span>
+            </div>
+            <div class="input-group-append">
+            <a class="btn btn-secondary" href="/autenticacao/logout">Sair</a>
+            </div>
+            
+        </div>     
+        
+            
+            
         </div>      
+        <?php }else{ ?>
+        <div class="ml-auto">
+            <div class="btn-group btn-group-sm" >
+                <a href="/login" class="btn btn-sm btn-primary">Login</a>
+                <a href="/registrar" class="btn btn-sm btn-secondary">Registrar</a>
+            </div>    
+        </div>          
         <?php } ?>
   
     </nav>
