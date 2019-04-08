@@ -14,12 +14,12 @@ jQuery.validator.setDefaults({
           error.prependTo($(".wrap-captcha"));
         }
 
-        if( !element.hasClass("cep")){
+        if( !element.hasClass("cep") ){
           var label = element.parents().children("label")
           error.insertAfter(label);
         }
 
-        if( element.parents("form").hasClass("admin--form-main")){
+        if( element.parents("form") ){
                 error.insertAfter(element);
         }
 

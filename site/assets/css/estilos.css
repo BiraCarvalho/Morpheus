@@ -11,3 +11,14 @@
     width: 100%;
     max-width: 500px;
 }
+
+.form--registro{
+    max-width: 550px;
+}
+
+form .span-error{
+    color: #ff0000;
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}

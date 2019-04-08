@@ -1,7 +1,7 @@
 <article>
 	
 	<header class="d-none">
-		<h2 id="article--questionario-titulo"><?=$conteudo['Titulo']?></h2>
+		<h2 id="article--titulo"><?=$conteudo['Titulo']?></h2>
 	</header>
 
 	<?=$conteudo['Texto'] ? $conteudo['Texto'] : ''; ?>

@@ -21,5 +21,7 @@
     <link href="/site/assets/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/site/assets/css/estilos.css" rel="stylesheet">
 
+    <script src="/site/assets/node_modules/jquery/dist/jquery.min.js"></script>
+    
   </head>
   <body class="d-flex flex-column h-100">

@@ -14,3 +14,7 @@ if( $secao_formato == "cadastros-login"){
 if( $secao_formato == "cadastros-autenticacao"){
     require_once __DIR__ . "/autenticacao/init.inc.php";
 }
+
+if( $secao_formato == "cadastros-registro"){
+    require_once __DIR__ . "/registro/init.inc.php";
+}

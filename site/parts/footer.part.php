@@ -4,11 +4,12 @@
         </div>
     </footer>
 
-    <script src="/site/assets/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/site/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/site/assets/node_modules/popper.js/dist/umd/popper.min.js"></script>
 
     <script src="/site/assets/node_modules/js-cookie/src/js.cookie.js"></script>
+
+    <script src="/biblioteca/assets/js/index.js"></script>
 
     <?php
      $footer__assets_modulo_uri    = __MODULOS_ASSETS_PATH . "/" . $secao_modulo . "/assets/js/modulo.js";

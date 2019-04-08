@@ -3,11 +3,7 @@ console.log("Admin Modulo " + __Modulo);
 
 jQuery(function()
 {
-    
-    var questionario_titulo = $("#article--questionario-titulo").text();
-    $("#navbar--questionario-titulo").text(questionario_titulo);
-    
-    
+   
     var operacao = jQuery(".nav-tabs").data("operacao");
 
     if(operacao == "editar"){

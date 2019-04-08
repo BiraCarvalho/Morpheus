@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand font-weight-bold" href="/home">
             Triconsult
-            <span id="navbar--questionario-titulo" class="font-weight-normal ml-2"></span>
+            <span id="navbar--titulo" class="font-weight-normal ml-2"></span>
         </a>
 
         <?php if( autenticacao__get_logon() && $secao_slug != "autenticacao" ){ ?>

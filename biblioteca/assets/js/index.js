@@ -1,3 +1,9 @@
+//Seção Título
+var article__titulo = $("#article--titulo").text();
+$("#navbar--titulo").text(article__titulo);
+
+
+
 $(".data").on("keyup",function(){
     mascara(this, mdata);
 })
@@ -49,26 +55,26 @@ var busca_cep = function(){
 }
 busca_cep();
 
-$("a[rel='box-imagem']").magnificPopup({
-	type:"image",
-	image:{
-		titleSrc: 'title'
-	},
-	gallery:{
-		enabled:true
-	}
-});
+// $("a[rel='box-imagem']").magnificPopup({
+// 	type:"image",
+// 	image:{
+// 		titleSrc: 'title'
+// 	},
+// 	gallery:{
+// 		enabled:true
+// 	}
+// });
 
-$(".box-imagem").magnificPopup({
-	type:"image",
-	image:{
-		titleSrc: 'title'
-	}
-});
+// $(".box-imagem").magnificPopup({
+// 	type:"image",
+// 	image:{
+// 		titleSrc: 'title'
+// 	}
+// });
 
-$(".iframe").magnificPopup({
-	type:"video"
-});
+// $(".iframe").magnificPopup({
+// 	type:"video"
+// });
 
 $(".alert--flash").show( 300 ).delay( 15000 ).slideUp( 400 );
 
@@ -78,25 +84,25 @@ if( $(".filestyle").length ){
 
 //Plugin de paginação com bootstrap : Bootpage*
 
-var pagina_atual = $(".paginador").data('pagina-atual');
-var pagina_total = $(".paginador").data('pagina-total');
+// var pagina_atual = $(".paginador").data('pagina-atual');
+// var pagina_total = $(".paginador").data('pagina-total');
 
-$('.paginador').bootpag({
-	page: pagina_atual,
-	maxVisible: 6,
-	leaps: true,
-	prev: '<',
-	next: '>',
-	firstLastUse: true,
-	first: '<<',
-	last: '>>',
-	total: pagina_total,
-	wrapClass: 'pagination justify-content-center'
-}).on('page', function(event, num){
+// $('.paginador').bootpag({
+// 	page: pagina_atual,
+// 	maxVisible: 6,
+// 	leaps: true,
+// 	prev: '<',
+// 	next: '>',
+// 	firstLastUse: true,
+// 	first: '<<',
+// 	last: '>>',
+// 	total: pagina_total,
+// 	wrapClass: 'pagination justify-content-center'
+// }).on('page', function(event, num){
 
-	var pagina_href  = $(this).data('pagina-href');
-	var query_string = $(this).data('pagina-query-string');
-	query_string = query_string ? query_string : "";
+// 	var pagina_href  = $(this).data('pagina-href');
+// 	var query_string = $(this).data('pagina-query-string');
+// 	query_string = query_string ? query_string : "";
 
-	location.href = pagina_href + "/pagina/" + num + query_string;
-});
+// 	location.href = pagina_href + "/pagina/" + num + query_string;
+// });
