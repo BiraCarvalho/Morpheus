@@ -19,11 +19,14 @@ if( $operacao == "gravar" ){
     $_POST["Criacao"] = date("d/m/Y H:i:s");
     $_POST['Agente']  = $_SERVER['HTTP_USER_AGENT'];
     $_POST['Ip']      = $_SERVER['REMOTE_ADDR'];
+   
+    $senha          = filter_input(INPUT_POST,"Senha");
+    $_POST["Senha"] = password_hash($senha,PASSWORD_DEFAULT);
 
     $cadastro_id = dbal__write($_POST, $tabela, 0);
     $cadastro    = dbal__select_form("Id", $cadastro_id, $tabela);
 
-    if( $cadastro_id !== true ){
+    if( $cadastro_id === false ){
         alert__set( "0", $alerts["erro"]["Contexto"], $alerts["erro"]["Texto"], __NAMESPACE );
         return false;
     }
