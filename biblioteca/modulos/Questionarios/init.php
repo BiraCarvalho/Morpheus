@@ -45,6 +45,11 @@ switch ($__operacao) {
 
     case "salvar":
 
+        $_POST["Atualizacao"]           = date("d/m/Y H:i:s");
+        $_POST["AtualizacaoUsuarioId"]  = $__usuario["Id"];       
+        $_POST['Agente']                = $_SERVER['HTTP_USER_AGENT'];
+        $_POST['Ip']                    = $_SERVER['REMOTE_ADDR'];
+
         $_POST["Slug"] = dbal__set_slug( $tabela, $_POST["Titulo"], $_POST["Slug"], $__registro_id );
         $__registro_id = dbal__write($_POST, $tabela, $__registro_id, ["Secoes","Grupos","Midias"]);
 
