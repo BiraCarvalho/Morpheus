@@ -81,21 +81,6 @@
 							]);							
                         	?>
 							</div>
-							<div class="row">
-							<?php
-							echo includes__load_componente("forms", [
-								"type"	  		=> "textarea",
-								"label"   		=> "Observações",
-								"id"      		=> "Observacoes",
-								"name"    		=> "Observacoes",
-								"form-group" 	=> true,
-								"class"   		=> "",
-								"col-grid"		=> "col-md-12",
-								"rows"    		=> 15,
-								"value"   		=> $dados["resultado"]["Observacoes"]
-							]);
-							?>
-							</div>
                         </div>
                         <div class="clearfix"></div>
 
