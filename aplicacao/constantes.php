@@ -34,10 +34,10 @@ define ( "__ADMIN_PAGINA_QUERY_VAR",    "pagina" );
 define ( "__ADMIN_MODULO_LOGIN_DEFAULT", "SistemaAutenticacao" );
 define ( "__ADMIN_MODULO_DEFAULT",       "Dashboard"    );
 
-define ( "__SITE_ROTA_DEFAULT",        "home" );
+define ( "__SITE_ROTA_DEFAULT",        "dashboard" );
 
 define ( "__SITE_AUTENTICACAO_URI",   __BASE_DIR . "/autenticacao");
-define ( "__SITE_LOGIN_REDIRECT_URI", __BASE_DIR . "/home"  );
+define ( "__SITE_LOGIN_REDIRECT_URI", __BASE_DIR . "/dashboard"  );
 
 define ( "__DADOS_BASE_URI",        __BASE_DIR . "/dados" );
 define ( "__MIDIAS_BASE_URI",       __BASE_DIR . "/dados/midias" );
