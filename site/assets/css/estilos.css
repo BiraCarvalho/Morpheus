@@ -3,6 +3,10 @@
     height: 300px;
 }
 
+.navbar--saudacao{
+    font-size: 0.85rem;
+}
+
 .questionarios--pergunta .card-footer button{
     width: 2.5em !important;
 }

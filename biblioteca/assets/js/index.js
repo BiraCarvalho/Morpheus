@@ -1,6 +1,6 @@
 //Seção Título
-var article__titulo = $("#article--titulo").text();
-$("#navbar--titulo").text(article__titulo);
+var pagina__titulo = $("#pagina--titulo").text();
+$("#navbar--titulo").text(pagina__titulo);
 
 
 
