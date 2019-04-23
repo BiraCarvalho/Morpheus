@@ -3,72 +3,44 @@
 require_once __DIR__ . "/config.php";
 require_once __DIR__ . "/funcoes.php";
 
-$pagina_exibir  = filter_input( INPUT_GET, 'exibir' );
-$operacao       = filter_input( INPUT_GET, "op" );
+$indiceUuid = sessions__get('QUESTIONARIO__INDICE_UUID');
 
-$redirect_url   = "/".$secao_slug."/".$slug."?exibir=resultado";
+$questionario = questionarios__getBySlug($slug);
+$indice 	  = questionarios__getIndiceByUuid($indiceUuid);
+$respostas    = questionarios__getRespostas($indice['Id']);
 
-$cadastro__hash = autenticacao__get_usuario_uuid();
-$cadastro       = cadastros__get_usuario( $cadastro__hash );
-
-if( $secao_formato == "questionario-alinhar"  ){
-    $conteudo    = questionarios__dados_para_pagina( $secao_id, $grupo_id, $slug );
-    $conteudo    = formatacao__mysql_html("Questionarios", $conteudo);
-    $conclusoes  = questionario__get_conclusoes($cadastro["Id"], $conteudo["Id"]);
-    $conteudo_id = $conteudo["Id"];
-}
-
-switch($operacao){
-
-    case "gravar":
-
-        // $_POST["Criacao"] = date("d/m/Y H:i:s");
-        // $_POST['Agente']  = $_SERVER['HTTP_USER_AGENT'];
-        // $_POST['Ip']      = $_SERVER['REMOTE_ADDR'];
-
-        $conclusoes_id = $conclusoes ? $conclusoes["Id"] : 0;
-        $retorno = dbal__write($_POST, "QuestionariosConclusoes", $conclusoes_id);
-
-        if( $retorno !== true ){
-            alert__set( "0", "danger", "Não foi possível gravar", __NAMESPACE );
-            global__redirect( $redirect_url );
-        }
-
-        alert__set( "0", "success", "Salvo com sucesso!", __NAMESPACE );
-        global__redirect( $redirect_url );
-
-        break;
-
-    case "novo":
-        
-        $_POST["CadastrosId"]     = $cadastro["Id"];
-        $_POST["QuestionariosId"] = $conteudo["Id"];
-
-        $_POST["Criacao"] = date("d/m/Y H:i:s");
-        $_POST['Agente']  = $_SERVER['HTTP_USER_AGENT'];
-        $_POST['Ip']      = $_SERVER['REMOTE_ADDR'];
-        
-        $retorno = dbal__write($_POST, "QuestionariosIndex", 0);
-        
-        if( $retorno === false ){
-            alert__set( "0", "danger", "Não foi possível gravar", __NAMESPACE );
-            global__redirect( "/".$secao_slug."/".$slug );
-        }
-
-        alert__set( "0", "success", "Salvo com sucesso!", __NAMESPACE );
-        global__redirect( "/".$secao_slug."/".$slug );
-
-        break;
-}
 ?>
+<section>
+	
+	<header class="d-none">
+		<h2 id="pagina--titulo"><?=$questionario['Titulo']?></h2>
+	</header>
 
-<?php if( $slug && $secao_formato == "questionario-alinhar" ){ ?>
-    <?php if( $pagina_exibir == "resultado"){ ?>
-        <?php 
-            $resultado_alinhar = questionario__resultado_alinhar((int)$conteudo_id); 
-            include_once __DIR__ . "/pagina-resultado.inc.php"; 
-        ?>
-    <?php } else { ?>
-        <?php include_once __DIR__ . "/pagina.inc.php"; ?>
-    <?php } ?>
-<?php } ?>
+	<?=$questionario['Texto'] ? $questionario['Texto'] : ''; ?>
+
+	<?php if( $perguntas = questionarios__getPerguntas($indice['QuestionariosId'])){ ?>
+		<?php foreach( $perguntas as $pergunta ){ ?>
+		<?php $resposta_valor = isset($respostas[$pergunta['Id']]) ? $respostas[$pergunta['Id']] : 0; ?>
+		<div id="pergunta_<?=$pergunta['Id'];?>" class="questionarios--pergunta card border-dark mb-3" >
+			<div class="card-body text-dark">
+				<h5 class="card-title"><?=$pergunta['Ordem'];?>. <?=stripslashes($pergunta['Titulo']);?></h5>
+				<div class="card-text text-muted"><?=stripslashes($pergunta['Texto']);?></div>
+			</div>
+			<div class="card-footer d-flex flex-wrap justify-content-center">
+				<?php for( $escala_id = 1; $escala_id <= (int)$questionario['Escala']; $escala_id++ ){ ?>
+					<?php $resposta_active = $escala_id == $resposta_valor ? "active" : ""; ?>
+					<button id="resposta_<?=$escala_id;?>" type="button" class="questionarios--resposta flex-fill m-1 btn btn-lg btn-outline-secondary <?=$resposta_active?>" 
+					autocomplete     = "off"
+					data-cadastro-id = "<?=$cadastro["Id"]?>"
+					data-pergunta-id = "<?=$pergunta['Id'];?>"
+					value="<?=$escala_id;?>"
+					>
+					<?=$escala_id;?>
+					</button>
+				<?php } ?>
+			</div>
+		</div>
+		<?php }?>
+	<?php }?>
+
+</section>
