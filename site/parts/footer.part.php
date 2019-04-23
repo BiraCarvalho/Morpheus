@@ -4,8 +4,8 @@
         </div>
     </footer>
 
-    <script src="/site/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/site/assets/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/site/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>    
 
     <script src="/site/assets/node_modules/js-cookie/src/js.cookie.js"></script>
 
