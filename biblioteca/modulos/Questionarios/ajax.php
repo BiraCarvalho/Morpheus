@@ -24,17 +24,17 @@ switch ($__operacao) {
         $pergunta_id = dbal__write($perguntas, $tabela."Perguntas", 0);
 
         $include = includes__load_form([
-            "formulario"	=> __DIR__ . "/forms/pergunta-template",
-            "registro"	 	=> $perguntas,
-            "pergunta_id"	=> $pergunta_id,
-            "fk_id" 	 	=> $registro_id,
-            "modulo"        => $__modulo,
-            "tabela"        => $tabela,
+            "formulario"  => __DIR__ . "/forms/pergunta-template",
+            "registro"	  => $perguntas,
+            "pergunta_id" => $pergunta_id,
+            "fk_id" 	  => $registro_id,
+            "modulo"      => $__modulo,
+            "tabela"      => $tabela,
         ]);
 
         $retorno = [
             "pergunta_id" => $pergunta_id,
-            "include" => $include
+            "include"     => $include
         ];
 
         break;
@@ -48,18 +48,18 @@ switch ($__operacao) {
 
     case "resposta-check":
 
-        $resposta["CadastrosId"]              = filter_input(INPUT_POST, "cadastro_id",    FILTER_SANITIZE_NUMBER_INT);
+        $resposta["QuestionariosIndiceId"]    = filter_input(INPUT_POST, "indice_id",      FILTER_SANITIZE_NUMBER_INT);
         $resposta["QuestionariosPerguntasId"] = filter_input(INPUT_POST, "pergunta_id",    FILTER_SANITIZE_NUMBER_INT);
         $resposta["Valor"]                    = filter_input(INPUT_POST, "resposta_value", FILTER_SANITIZE_NUMBER_INT);
   
         $consulta = "SELECT Id 
-                       FROM {$tabela}Respostas 
-                      WHERE CadastrosId = ?
+                       FROM QuestionariosRespostas 
+                      WHERE QuestionariosIndiceId = ?
                         AND QuestionariosPerguntasId = ?";
 
-        $resposta_id = global__db()->fetchColumn($consulta, [$resposta["CadastrosId"], $resposta["QuestionariosPerguntasId"]]);               
+        $resposta_id = global__db()->fetchColumn($consulta, [$resposta["QuestionariosIndiceId"], $resposta["QuestionariosPerguntasId"]]);               
         
-        $resposta_id = dbal__write($resposta, $tabela."Respostas", $resposta_id);
+        $resposta_id = dbal__write($resposta, "QuestionariosRespostas", $resposta_id);
         
         $retorno = [
             "resposta_id" => $resposta_id

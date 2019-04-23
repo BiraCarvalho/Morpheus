@@ -31,7 +31,7 @@ $respostas    = questionarios__getRespostas($indice['Id']);
 					<?php $resposta_active = $escala_id == $resposta_valor ? "active" : ""; ?>
 					<button id="resposta_<?=$escala_id;?>" type="button" class="questionarios--resposta flex-fill m-1 btn btn-lg btn-outline-secondary <?=$resposta_active?>" 
 					autocomplete     = "off"
-					data-cadastro-id = "<?=$cadastro["Id"]?>"
+					data-indice-id = "<?=$indice["Id"]?>"
 					data-pergunta-id = "<?=$pergunta['Id'];?>"
 					value="<?=$escala_id;?>"
 					>

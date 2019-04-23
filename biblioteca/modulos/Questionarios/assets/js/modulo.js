@@ -134,12 +134,12 @@ var checkResposta = function(action, event, element, url)
 {
     event.preventDefault();
 
-    var cid    = jQuery(element).data("cadastro-id");
+    var iid    = jQuery(element).data("indice-id");
     var pid    = jQuery(element).data("pergunta-id");
     var rvalue = jQuery(element).val(); //Resposta
 
-    if(!cid){
-        console.log("Falta id do cadastro de clientes!");
+    if(!iid){
+        console.log("Falta id do indice!");
         return false;
     }
 
@@ -156,7 +156,7 @@ var checkResposta = function(action, event, element, url)
     jQuery.post(url,
     {
         "op"             : "resposta-" + action,
-        "cadastro_id"    : cid,
+        "indice_id"      : iid,
         "pergunta_id"    : pid,
         "resposta_value" : rvalue,
     },
