@@ -1,4 +1,4 @@
-<section>
+<section class="dashboard--section">
 
 	<header class="d-none">
 		<h2 id="pagina--titulo">Dashboard | Questionários</h2>
@@ -7,40 +7,41 @@
     <?=alert__show(__NAMESPACE)?>
     
     <div class="card">
-        <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-                <?php $navtab_count = 0; ?>
+        
+        <div class="card-header d-flex">
+
+            <h3 class="align-self-end">Resultados dos Testes</h3>
+
+            <div class="dropdown ml-auto align-self-start">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                    Realizar um Novo Teste
+                </button>
+                <div class="dropdown-menu">
                 <?php foreach( questionarios__getAll() as $questionario){ ?>
-                <?php $navtab_active = $navtab_count === 0 ? 'active' : '' ; $navtab_count++; ?>
-                <li class="nav-item">
-                    <a class="nav-link text-reset <?=$navtab_active?>" data-toggle="tab" href="#<?=$questionario['Slug']?>"><?=$questionario['Titulo']?></a>
-                </li>
-                <?php } ?>
-            </ul>
-        </div>
-        <div class="tab-content">
-            <?php $tabpane_count = 0; ?>
-            <?php foreach( questionarios__getAll() as $questionario){ ?>
-            <?php $tabpane_active = $tabpane_count === 0 ? 'show active' : '' ; $tabpane_count++; ?>
-            <div id="<?=$questionario['Slug']?>" class="tab-pane card-body <?=$tabpane_active?>">
-                
-                <div class="header d-flex">
-                    <h3><?=$questionario['Titulo']?></h3>
-                    <a class="btn btn-sm btn-primary ml-auto align-self-start" href="/questionarios/<?=$questionario['Slug']?>?op=novo">Realizar um novo teste</a>
+                    <a class="dropdown-item" href="/questionarios/<?=$questionario['Slug']?>?op=novo"><?=$questionario['Titulo']?></a>
+                <?php } ?>    
                 </div>
-                <hr>
-
-                <h4 class="pb-3">Resultados</h4>
-
-                <ul>
-                    <li><a href="#">01/01/2019</a></li>
-                    <li><a href="#">01/02/2019</a></li>
-                    <li><a href="#">01/03/2019</a></li>
-                </ul>
-
             </div>
-            <?php } ?>
+
         </div>
-    
+
+        <ul class="list-group list-group-flush">
+            <?php foreach( questionario__getIndicesByCadastros($cadastro['Id']) AS $resultado ){ ?>
+                <?php 
+                if($resultado['RespostasCount'] < $resultado['PerguntasCount']){
+                    continue;
+                }  
+                ?>
+                <li class="list-group-item" >
+                    <a class="px-2" href="/resultados/?uuid=<?=$resultado['uuid']?>" >
+                        <?=formatacao__datahora_ptBR($resultado['Criacao'])?>
+                    </a>
+                    <a class="px-2" href="/resultados/?uuid=<?=$resultado['uuid']?>" >
+                        <?=$resultado['Titulo']?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+        
     </div>
 </section>

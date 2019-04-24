@@ -16,6 +16,10 @@
     max-width: 500px;
 }
 
+.dashboard--section h3{
+    font-size: 1.15rem;
+}
+
 .form--registro{
     max-width: 550px;
 }

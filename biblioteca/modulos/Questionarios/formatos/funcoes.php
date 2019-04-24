@@ -3,19 +3,15 @@
 /**
  * Iformação de todos os questionários ativos
  */
-function questionarios__getAll(string $whereSlug = '', int $whereId = 0)
+function questionarios__getAll(string $where = '')
 {
-    $where = $whereSlug !== '' ? "AND questionarios.Slug='{$whereSlug}'" : '';
-    
-    $where = $whereId   !== 0  ? "AND questionarios.Id='{$whereId}'"     : '';
-
     $consulta = "SELECT * 
-                FROM Questionarios AS questionarios
-                WHERE questionarios.Situacao = '1'
-                AND questionarios.Arquivado = '0'
-                AND questionarios.Data <= NOW()
-                {$where}
-            ORDER BY Id ASC";
+                   FROM Questionarios AS questionarios
+                  WHERE questionarios.Situacao = '1'
+                    AND questionarios.Arquivado = '0'
+                    AND questionarios.Data <= NOW()
+                    {$where}
+                 ORDER BY Id ASC";
 
     return global__db()->fetchAll($consulta);
 }
@@ -25,7 +21,10 @@ function questionarios__getAll(string $whereSlug = '', int $whereId = 0)
  */
 function questionarios__getBySlug(string $slug)
 {
-    $resultado = questionarios__getAll($slug);
+    $slug  = filter_var($slug, FILTER_SANITIZE_MAGIC_QUOTES);
+    $where = "AND questionarios.Slug='{$slug}'";
+    
+    $resultado = questionarios__getAll($where);
     return $resultado[0];
 }
 
@@ -72,9 +71,10 @@ function questionarios__getPerguntas(int $questionarioId)
     return global__db()->fetchAll($consulta);
 }
 
-function questionarios__getRespostas(int $indiceId)
+function questionarios__getRespostasByIndices(int $indiceId)
 {
     $indiceId = (int)$indiceId;
+    
     $consulta = "SELECT * 
                     FROM QuestionariosRespostas AS Respostas
                    WHERE Respostas.QuestionariosIndiceId = '{$indiceId}'
@@ -91,4 +91,57 @@ function questionarios__getRespostas(int $indiceId)
         $retorno[$resposta['QuestionariosPerguntasId']] = $resposta['Valor'];        
     }
     return $retorno;
+}
+
+function questionario__getIndicesByCadastros(int $cadastrosId)
+{
+    $cadastrosId = (int)$cadastrosId;
+    
+    $consulta = "SELECT 
+                    Indice.Id,
+                    Indice.uuid,
+                    Indice.Criacao,
+                    Questionarios.Titulo,
+                    Questionarios.Slug,
+                    (SELECT COUNT(*) FROM QuestionariosPerguntas AS Perguntas WHERE Perguntas.QuestionariosId = Indice.QuestionariosId ) AS PerguntasCount,
+                    (SELECT COUNT(*) FROM QuestionariosRespostas AS Respostas WHERE Respostas.QuestionariosIndiceId = Indice.Id ) AS RespostasCount
+                    FROM QuestionariosIndice AS Indice
+                    JOIN Cadastros
+                    ON CadastrosId = Cadastros.Id
+                    JOIN Questionarios
+                    ON QuestionariosId = Questionarios.Id
+                    WHERE CadastrosId = '{$cadastrosId}'
+                ORDER BY Indice.Id DESC";
+
+    return global__db()->fetchAll($consulta);
+}
+
+function questionario__getConclusoesByIndices(int $indiceId)
+{    
+    $indiceId = (int)$indiceId;
+
+    $consulta  = "SELECT * 
+                    FROM QuestionariosConclusoes 
+                   WHERE QuestionariosIndiceId = ?";
+
+    return global__db()->fetchAssoc( $consulta , [ $indiceId ]);
+
+}
+
+function questionario__getResultadoToGraphic(int $indiceId)
+{
+    $indiceId = (int)$indiceId;
+    
+    $consulta = "SELECT  
+                    Perguntas.Agrupamento, 
+                    SUM(Respostas.Valor) AS Soma, 
+                    COUNT(Perguntas.Id) AS NumeroDePerguntas, 
+                    SUM(Respostas.Valor)/COUNT(Perguntas.Id) AS Media
+                    FROM QuestionariosPerguntas AS Perguntas 
+                    JOIN QuestionariosRespostas AS Respostas ON Perguntas.Id = Respostas.QuestionariosPerguntasId
+                    WHERE Respostas.QuestionariosIndiceId = ?
+                    GROUP BY Perguntas.Agrupamento
+                    ORDER BY Perguntas.Agrupamento";
+
+    return global__db()->fetchAll($consulta, [ $indiceId ]);
 }

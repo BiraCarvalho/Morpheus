@@ -13,7 +13,6 @@ $indiceUuid = global__filter_request("uuid");
 $cadastro__hash = autenticacao__get_usuario_uuid();
 $cadastro       = cadastros__get_usuario( $cadastro__hash );
 
-
 switch($operacao){
 
     case "novo":
@@ -32,15 +31,30 @@ switch($operacao){
         if( $indiceId !== false ){
             $indice = questionarios__getIndiceById($indiceId);
             sessions__set("QUESTIONARIO__INDICE_UUID", $indice['uuid']);
-            global__redirect( "/".$secao_slug."/".$slug );
+            global__redirect("/{$secao_slug}/{$slug}");
         }
 
         alert__set("0",$alertsMessages["error"]["Contexto"], $alertsMessages["error"]["Texto"], __NAMESPACE);
         global__redirect("/dashboard");
         
         break;
-}
+    
+    case "conclusoes-salvar":
+        
+        $conclusoesId = (int)$_POST['Id'];
 
+        $retorno = dbal__write($_POST, "QuestionariosConclusoes", $conclusoesId);
+
+        if( $retorno !== false ){
+            alert__set("0",$alertsMessages["success"]["Contexto"], $alertsMessages["success"]["Texto"], __NAMESPACE);
+            global__redirect( $_POST['redirect_url'] );
+        }
+        
+        alert__set("0",$alertsMessages["error"]["Contexto"], $alertsMessages["error"]["Texto"], __NAMESPACE);
+        global__redirect( $_POST['redirect_url'] );
+    
+        break;
+}
 
 if( $secao_formato == "dashboard"){
     require_once __DIR__ . "/dashboard/init.inc.php";
@@ -48,4 +62,8 @@ if( $secao_formato == "dashboard"){
 
 if( $secao_formato == "formulario"){
     require_once __DIR__ . "/formulario/init.inc.php";
+}
+
+if( $secao_formato == "resultado"){
+    require_once __DIR__ . "/resultado/init.inc.php";
 }
