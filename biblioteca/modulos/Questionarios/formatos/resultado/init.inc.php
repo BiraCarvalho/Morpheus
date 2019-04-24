@@ -21,8 +21,10 @@ $grafico    = questionario__getResultadoToGraphic($indice['Id']);
                     <div id="chartdiv"></div>
                 </div>
 
-                <input id="op" name="op" type="hidden" value="conclusoes-salvar" >
-                <input id="Id" name="Id" type="hidden" value="<?=$conclusoes["Id"]?>" >
+                <input id="op"  name="op" type="hidden" value="conclusoes-salvar" >
+                <input id="cid" name="Id" type="hidden" value="<?=$conclusoes["Id"]?>" >
+                <input id="qid" name="QuestionariosIndiceId" type="hidden" value="<?=$indice['Id']?>" >
+
                 <input id="redirect_url" name="redirect_url" type="hidden" value="/<?=$secao_slug?>/<?=$slug?>?uuid=<?=$indiceUuid?>" >
                 
                 <div class="form-group">
