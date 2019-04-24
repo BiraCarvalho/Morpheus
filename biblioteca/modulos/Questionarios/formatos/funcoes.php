@@ -83,7 +83,7 @@ function questionarios__getPerguntas(int $questionarioId)
     return global__db()->fetchAll($consulta);
 }
 
-function questionarios__getRespostasByIndices(int $indiceId)
+function questionarios__getRespostasByIndiceId(int $indiceId)
 {
     $indiceId = (int)$indiceId;
     
@@ -128,7 +128,7 @@ function questionarios__getIndicesByCadastros(int $cadastrosId)
     return global__db()->fetchAll($consulta);
 }
 
-function questionarios__getConclusoesByIndices(int $indiceId)
+function questionarios__getConclusoesByIndiceId(int $indiceId)
 {    
     $indiceId = (int)$indiceId;
 

@@ -7,7 +7,7 @@ $indiceUuid = sessions__get('QUESTIONARIO__INDICE_UUID');
 
 $questionario = questionarios__getBySlug($slug);
 $indice 	  = questionarios__getIndiceByUuid($indiceUuid);
-$respostas    = questionarios__getRespostasByIndices($indice['Id']);
+$respostas    = questionarios__getRespostasByIndiceId($indice['Id']);
 
 ?>
 <section class="formulario--section">

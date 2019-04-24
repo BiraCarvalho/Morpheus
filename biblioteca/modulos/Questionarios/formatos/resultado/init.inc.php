@@ -1,7 +1,7 @@
 <?php 
 
 $indice       = questionarios__getIndiceByUuid($indiceUuid);
-$conclusoes   = questionarios__getConclusoesByIndices($indice['Id']);
+$conclusoes   = questionarios__getConclusoesByIndiceId($indice['Id']);
 $grafico      = questionarios__getResultadoToGraphic($indice['Id']);
 $questionario = questionarios__getById($indice['QuestionariosId']);
 
