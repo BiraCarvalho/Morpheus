@@ -6,6 +6,7 @@ if ( ! defined( '__ROOT_PATH' ) ) {
 
 require_once __DIR__ . "/config.php";
 require_once __DIR__ . "/funcoes.php";
+require_once __DIR__ . "/formatos/funcoes.php";
 
 //Do ajax request
 $pergunta_id = filter_input(INPUT_POST, "pergunta_id");
@@ -67,10 +68,18 @@ switch ($__operacao) {
 
         break;
 
-    case "resposta-uncheck":
+    case "resultado-complete":
+
+        $indiceId = filter_input(INPUT_POST, "indice_id", FILTER_SANITIZE_NUMBER_INT);
+
+        $indice         = questionarios__getIndiceById($indiceId);
+        $perguntasCount = questionarios__getCountPerguntasByQuestionariosId($indice['QuestionariosId']);
+        $respostasCount = questionarios__getCountRespostasByIndiceId($indiceId);
+
+        $complete = (int)$perguntasCount === (int)$respostasCount;
 
         $retorno = [
-            "resposta" => "uncheck"
+            "complete" => $complete
         ];
 
     break;

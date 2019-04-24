@@ -51,7 +51,7 @@ $respostas    = questionarios__getRespostasByIndiceId($indice['Id']);
 		</div>
 		<div class="card-footer d-flex">
 			<a href="/dashboard" class="btn btn-light">Voltar ao Dashboard</a>
-			<a href="/resultados/?uuid=<?=$indiceUuid?>" class="btn btn-primary ml-auto">Resultado</a>
+			<a href="/resultados/?uuid=<?=$indiceUuid?>" class="btn btn-primary ml-auto questionarios--resultado" data-indice-id="<?=$indice["Id"]?>">Resultado</a>
 		</div>
 	</div>
 

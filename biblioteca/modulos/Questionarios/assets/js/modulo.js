@@ -3,24 +3,6 @@ console.log("Admin Modulo " + __Modulo);
 
 jQuery(function()
 {
-   
-    var operacao = jQuery(".nav-tabs").data("operacao");
-
-    if(operacao == "editar"){
-
-        var hash = Cookies.get("form-main-tab-" + __Modulo);
-        jQuery('.nav-tabs a[href="' + hash + '"]').tab('show');
-
-        jQuery('a[data-toggle="tab"]').on('show.bs.tab', function (e)
-        {
-            var hash = jQuery(this).attr("href");
-            Cookies.set("form-main-tab-" + __Modulo, hash);
-        })
-
-    }else{
-        Cookies.remove("form-main-tab-" + __Modulo);
-    }
-
     jQuery(".form-perguntas--adicionar").on("click", function(event)
         {
             perguntaAdicionar(event, this, "/ajax?mod=" + __Modulo);
@@ -34,7 +16,13 @@ jQuery(function()
 
     jQuery(".questionarios--resposta").on("click", function(event)
         {
-            toogleResposta(event, this, "/ajax?mod=" + __Modulo);
+            respostaToogle(event, this, "/ajax?mod=" + __Modulo);
+        }
+    );
+
+    jQuery(".questionarios--resultado").on("click", function(event)
+        {
+            formularioComplete(event, this, "/ajax?mod=" + __Modulo);
         }
     );
 
@@ -87,7 +75,7 @@ var perguntaRemover = function(event, element, url)
     var pergunta_id = jQuery(element).data("perguntas-id");
 
     if(!pergunta_id){
-        console.log("Falta id do perguntadado!");
+        console.log("Falta id da pergunta!");
         return false;
     }
 
@@ -110,35 +98,24 @@ var perguntaRemover = function(event, element, url)
 }
 
 
-var toogleResposta = function(event, element, url)
+var respostaToogle = function(event, element, url)
 {
     var jqElement = jQuery(element);
 
-    
     checkResposta("check", event, element, url);
     jqElement.siblings().removeClass('active');
     jqElement.addClass("active");    
-    
-    // if( jqElement.hasClass('active') ){
-    // }
-    // else{
-
-    //     checkResposta("uncheck", event, element, url);
-    //     jqElement.siblings().removeClass('active');
-    //     jqElement.addClass("active");
-
-    // }
 }
 
 var checkResposta = function(action, event, element, url)
 {
     event.preventDefault();
 
-    var iid    = jQuery(element).data("indice-id");
+    var qid    = jQuery(element).data("indice-id");
     var pid    = jQuery(element).data("pergunta-id");
     var rvalue = jQuery(element).val(); //Resposta
 
-    if(!iid){
+    if(!qid){
         console.log("Falta id do indice!");
         return false;
     }
@@ -156,7 +133,7 @@ var checkResposta = function(action, event, element, url)
     jQuery.post(url,
     {
         "op"             : "resposta-" + action,
-        "indice_id"      : iid,
+        "indice_id"      : qid,
         "pergunta_id"    : pid,
         "resposta_value" : rvalue,
     },
@@ -167,4 +144,37 @@ var checkResposta = function(action, event, element, url)
     "json")
 }
 
+var formularioComplete = function(event, element, url)
+{
+    event.preventDefault();
 
+    var qid  = jQuery(element).data("indice-id");
+    var href = jQuery(element).attr("href");
+
+    if(!qid){
+        console.log("Falta id do indice!");
+        return false;
+    }
+
+    jQuery.post(url,
+    {
+        "op"             : "resultado-complete",
+        "indice_id"      : qid,
+    },
+    function(data)
+    {
+        console.log("Complete: " + data.complete);
+
+        if(data.complete){
+            location.assign(href);
+            return;
+        }
+
+        bootbox.alert({
+            message: "Para ver o resultado é necessário responder todas as perguntas do questionário."
+        });
+        return false;
+
+    },
+    "json")
+}
