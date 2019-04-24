@@ -128,6 +128,28 @@ function questionarios__getIndicesByCadastros(int $cadastrosId)
     return global__db()->fetchAll($consulta);
 }
 
+function questionarios__getCountPerguntasByQuestionariosId(int $questionariosId)
+{
+    $questionariosId = (int)$questionariosId;
+
+    $consulta = "SELECT COUNT(*) 
+                   FROM QuestionariosPerguntas AS Perguntas 
+                  WHERE Perguntas.QuestionariosId = ?";
+    
+    return global__db()->fetchColumn( $consulta , [ $questionariosId ]);
+}
+
+function questionarios__getCountRespostasByIndiceId(int $indiceId){
+    
+    $indiceId = (int)$indiceId;
+
+    $consulta = "SELECT COUNT(*) 
+                   FROM QuestionariosRespostas AS Respostas 
+                  WHERE Respostas.QuestionariosIndiceId = ?";
+    
+    return global__db()->fetchColumn( $consulta , [ $indiceId ]);
+}
+
 function questionarios__getConclusoesByIndiceId(int $indiceId)
 {    
     $indiceId = (int)$indiceId;
