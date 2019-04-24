@@ -6,8 +6,9 @@
 
     <script src="/site/assets/node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="/site/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>    
-
     <script src="/site/assets/node_modules/js-cookie/src/js.cookie.js"></script>
+    
+    <script src="<?=__NODE_MODULES_PATH?>/bootbox/dist/bootbox.all.min.js"></script>
 
     <script src="/biblioteca/assets/js/index.js"></script>
 
