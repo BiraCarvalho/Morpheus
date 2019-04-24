@@ -17,7 +17,9 @@ $respostas    = questionarios__getRespostasByIndices($indice['Id']);
 	</header>
 
 	<div class="card">
-    	<div class="card-header"></div>
+		<div class="card-header d-flex">
+            <a href="/dashboard" class="btn btn-light">Voltar ao Dashboard</a>
+        </div>
 		<div class="card-body">
 
 		<?=$questionario['Texto'] ? $questionario['Texto'] : ''; ?>

@@ -1,6 +1,6 @@
 <?php
 
-// function questionario__resultado(int $questionario_id){
+// function questionarios__resultado(int $questionario_id){
 
 //     $consulta = "SELECT  
 //                     Perguntas.Agrupamento, 

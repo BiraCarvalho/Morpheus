@@ -29,6 +29,18 @@ function questionarios__getBySlug(string $slug)
 }
 
 /**
+ * Obter informações sobre um questionário usando o id como filtro
+ */
+function questionarios__getById(int $questionarioId)
+{
+    $questionarioId = (int)$questionarioId;
+    $where = "AND questionarios.Id='{$questionarioId}'";
+    
+    $resultado = questionarios__getAll($where);
+    return $resultado[0];
+}
+
+/**
  * Buscar dados de um indice de relacionamento pelo id
  */
 function questionarios__getIndiceById(int $indiceId)
@@ -93,7 +105,7 @@ function questionarios__getRespostasByIndices(int $indiceId)
     return $retorno;
 }
 
-function questionario__getIndicesByCadastros(int $cadastrosId)
+function questionarios__getIndicesByCadastros(int $cadastrosId)
 {
     $cadastrosId = (int)$cadastrosId;
     
@@ -116,7 +128,7 @@ function questionario__getIndicesByCadastros(int $cadastrosId)
     return global__db()->fetchAll($consulta);
 }
 
-function questionario__getConclusoesByIndices(int $indiceId)
+function questionarios__getConclusoesByIndices(int $indiceId)
 {    
     $indiceId = (int)$indiceId;
 
@@ -128,7 +140,7 @@ function questionario__getConclusoesByIndices(int $indiceId)
 
 }
 
-function questionario__getResultadoToGraphic(int $indiceId)
+function questionarios__getResultadoToGraphic(int $indiceId)
 {
     $indiceId = (int)$indiceId;
     

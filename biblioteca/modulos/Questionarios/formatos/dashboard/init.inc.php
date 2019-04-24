@@ -1,7 +1,7 @@
 <section class="dashboard--section">
 
 	<header class="d-none">
-		<h2 id="pagina--titulo">Dashboard | Questionários</h2>
+		<h2 id="pagina--titulo">Dashboard</h2>
 	</header>
     
     <?=alert__show(__NAMESPACE)?>
@@ -26,7 +26,7 @@
         </div>
 
         <ul class="list-group list-group-flush">
-            <?php foreach( questionario__getIndicesByCadastros($cadastro['Id']) AS $resultado ){ ?>
+            <?php foreach( questionarios__getIndicesByCadastros($cadastro['Id']) AS $resultado ){ ?>
                 <?php 
                 if($resultado['RespostasCount'] < $resultado['PerguntasCount']){
                     continue;

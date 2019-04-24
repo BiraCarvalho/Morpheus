@@ -1,20 +1,23 @@
 <?php 
 
-$indice     = questionarios__getIndiceByUuid($indiceUuid);
-$conclusoes = questionario__getConclusoesByIndices($indice['Id']);
-$grafico    = questionario__getResultadoToGraphic($indice['Id']);
+$indice       = questionarios__getIndiceByUuid($indiceUuid);
+$conclusoes   = questionarios__getConclusoesByIndices($indice['Id']);
+$grafico      = questionarios__getResultadoToGraphic($indice['Id']);
+$questionario = questionarios__getById($indice['QuestionariosId']);
 
 ?>
 <section class="resultados--section">
 
 	<header class="d-none">
-		<h2 id="pagina--titulo">Resultado | Questionários</h2>
+		<h2 id="pagina--titulo">Resultado | <?=$questionario['Titulo']?></h2>
 	</header>
     
     <?=alert__show(__NAMESPACE)?>
     <form id="form-main-questionario-conclusao" action="/<?=$secao_slug?>/<?=$slug?>?uuid=<?=$indiceUuid?>" method="POST" enctype="multipart/form-data" class="pt-4 pb-2" >
         <div class="card">
-            <div class="card-header"></div>
+            <div class="card-header d-flex">
+                <a href="/dashboard" class="btn btn-light">Voltar ao Dashboard</a>
+            </div>
             <div class="card-body">
 
                 <div class="p-4">
